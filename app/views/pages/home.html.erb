@@ -2,4 +2,11 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 
-<%= @items.inspect %>
+
+<% @items.each do |item| %>
+  <p><%= image_tag item.main_image %> </p>
+  <p><%= item.brand %> </p>
+  <p><%= item.category %> </p>
+  <p><%= item.details %> </p>
+  <p><%= item.price %> </p>
+<% end %>
