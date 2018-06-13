@@ -17,7 +17,9 @@
 <hr>
 
 <% @items.each do |item| %>
-  <p><%= image_tag item.main_image unless item.main_image.nil? %> </p>
+  <p><%= link_to (image_tag item.main_image ), item_path(item.id) unless item.main_image.nil?  %>
+    
+   </p>
   <p><%= item.brand %> </p>
   <p><%= item.category %> </p>
   <p><%= item.details %> </p>
