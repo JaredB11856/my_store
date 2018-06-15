@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.all.find(params[:id])
   end
 
   # GET /items/new
@@ -64,7 +65,8 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = Item.find(params[:id])
+      #TODO this was default used show action instead. Remove when no longer needed
+      #@item = Item.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

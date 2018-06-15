@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180612020605) do
     t.datetime "updated_at", null: false
     t.text     "main_image"
     t.decimal  "price"
+    t.string   "item_id"
   end
 
 end

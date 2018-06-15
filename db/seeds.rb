@@ -5,7 +5,8 @@
       details: "Lorem ipsum dolor sit amet, 
       consectetur adipiscing elit, sed do eiusmod",
       price: "9.99",
-      brand: "Niki"
+      brand: "Niki",
+      item_id: "item_#{items}" 
     )  
   end
 puts "9 items created"
