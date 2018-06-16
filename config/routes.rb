@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :items
+  resources :items, except: [:show]
+  get 'items/:id', to: 'items#show', as: 'item_show'
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'

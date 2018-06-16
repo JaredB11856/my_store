@@ -2,8 +2,7 @@
   Item.create!(
       primary: "#{items}",
       main_image: "http://via.placeholder.com/400x400",
-      details: "Lorem ipsum dolor sit amet, 
-      consectetur adipiscing elit, sed do eiusmod",
+      details: "details",
       price: "9.99",
       brand: "Niki",
       item_id: "item_#{items}" 

@@ -17,6 +17,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
+        <td>Item ID:<%= item.item_id %></td>
         <td><%= item.category %></td>
         <td><%= item.brand %></td>
         <td><%= item.primary %></td>

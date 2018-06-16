@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'friendly_id', '~> 5.2', '>= 5.2.4'
