@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /items
   # GET /items.json
@@ -62,12 +62,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def toggle_status
+    if @item.inactive?
+      @item.active!
+    elsif @item.active?
+      @item.inactive!
+    end
+
+    redirect_to items_url, notice: 'Item stats has been updated.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      #TODO this was default used show action instead. Remove when no longer needed
-      #@item = Item.find(params[:id])
-
+    def set_item      
+      @item = Item.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
