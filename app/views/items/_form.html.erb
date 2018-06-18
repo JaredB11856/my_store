@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+<!-- TODO add upload image button and show actual image -->  
+  <div class="field">
+    <%= f.label :main_image %>
+    <%= f.text_field :main_image %>
+  </div>
   <div class="field">
     <%= f.label :category %>
     <%= f.text_field :category %>
@@ -29,6 +33,12 @@
   <div class="field">
     <%= f.label :secondary %>
     <%= f.text_field :secondary %>
+  </div>
+ 
+ <!--TODO debug why item_id isnt working. I suspect it is because item_id is a string datatype not a text-->
+  <div class="field">
+    <%= f.label :item_id %>
+    <%= f.text_field :item_id %>
   </div>
 
   <div class="field">
