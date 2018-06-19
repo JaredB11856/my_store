@@ -10,6 +10,7 @@ Add item_id rules:
 
 model/item.rb
 items/_form.erb
+controller/application_controller.rb Add Devise stuff to own devise_controller.rb 
 
 
 
