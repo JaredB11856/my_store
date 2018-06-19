@@ -48,3 +48,39 @@ new home
         </div>
     </div>
 </div>
+
+Old Home
+
+<h1>Homepage</h1>
+
+<h2>Category Bar</h2>
+  <div>Parts</div>
+  <div>PCs</div>
+  <div>Monitors</div>
+<hr>
+
+<h2>User Nav</h2>
+  <div>Cart</div>
+  <div>User</div>  
+<hr>
+
+<h2>Filter Menu</h2>
+  <div>Primary</div>
+  <div>Secondary</div>
+<hr>
+<div class="container portfolio-container">
+    <div class="row">
+        <div class="col-md-6"
+        <% @items.each do |item| %>
+          <p><%= link_to (image_tag item.main_image ), item_path(item) unless item.main_image.nil?  %>
+            
+         </p>
+          <p><%= item.brand %> </p>
+          <p><%= item.category %> </p>
+          <p><%= item.details %> </p>
+          <p><%= item.price %> </p>
+
+        <% end %>       
+        
+    </div>
+</div>
