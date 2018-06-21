@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy, :toggle_status]
+  layout "item"
 
   # GET /items
   # GET /items.json
