@@ -4,6 +4,7 @@ Devise
 Bootsrap
 
 ##TODO
+Change item to product, like item_id to product_id. And in cases where it makes more sense.
 Add item_id rules:
  no spaces 
  no special characters
