@@ -5,12 +5,17 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    @page_title = "My Store | Items"
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.friendly.find(params[:id])
+    @item = Item.friendly.find(params[:id])   
+    #TODO
+    @page_title = ("My Store| " + @item.item_id)
+    #TODO
+    #@seo_keywords = @item.
   end
 
   # GET /items/new

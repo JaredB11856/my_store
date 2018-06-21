@@ -11,6 +11,8 @@ Add item_id rules:
 model/item.rb
 items/_form.erb
 controller/application_controller.rb Add Devise stuff to own devise_controller.rb 
+/items_controller make it say @item.name instead of item_id @page_title = ("My Store| " + @item.item_id)
+/items_contorller #@seo_keywords = @item.
 
 
 

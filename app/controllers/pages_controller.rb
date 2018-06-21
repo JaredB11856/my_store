@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @items = Item.all
+    @page_title = "My Store | Home"
   end
 
   def about
@@ -14,6 +15,6 @@ class PagesController < ApplicationController
 
   def set_portfolio_item
     ##
-    @item_item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 end
