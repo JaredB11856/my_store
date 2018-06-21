@@ -3,7 +3,6 @@
   <head>
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
-    
 
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
@@ -12,8 +11,7 @@
   </head>
 
   <body>    
-
-
+    <%= render "shared/nav", location: 'top' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
