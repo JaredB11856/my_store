@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy, :toggle_status]
+  access all: [:show], user: {except: [:destroy, :new, :Create, :update, :edit]}, admin: :all
   
 
   # GET /items

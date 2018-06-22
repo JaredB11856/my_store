@@ -10,8 +10,8 @@
         <td><%= item.details %></td>        
         <td><%= link_to item.status, toggle_status_item_path(item) %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) if logged_in?(:admin) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:admin) %></td>
       </tr>
   </div>  
 </div>
