@@ -11,13 +11,15 @@
   </head>
 
   <body>    
-    <%= render "shared/nav", location: 'top' %>
+    <%= render "shared/application_nav" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= login_helper %>
+    
 
     <%= yield %>
+
+    <%= render "shared/application_footer" %>
 
     <% if session[:source] %>
      <p>Thanks for visiting me from <%= session[:source] %></p>

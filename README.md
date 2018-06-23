@@ -3,6 +3,9 @@
 Devise
 Bootsrap
 
+##Add pages
+Make the homepage have deals and package stuff instead of the regular item layout.
+
 ##TODO
 Change item to product, like item_id to product_id. And in cases where it makes more sense.
 Add item_id rules:
