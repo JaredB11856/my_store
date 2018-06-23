@@ -1,12 +1,38 @@
-9.times do |items|
+3.times do |items|
   Item.create!(
       primary: "#{items}",
-      main_image: "http://via.placeholder.com/400x400",
+      main_image: "http://via.placeholder.com/200x200",
       details: "details",
-      price: "149.99",
-      brand: "Samxung",      
+      price: "129.99",
+      brand: "Samsung",      
       item_id: "item_#{items}",
       category: "Monitor"
     )  
   end
-puts "9 items created"
+puts "3 items created"
+
+3.times do |items|
+  Item.create!(
+      primary: "#{items}",
+      main_image: "http://via.placeholder.com/200x200",
+      details: "details",
+      price: "349.99",
+      brand: "Intel",      
+      item_id: "item_#{items}",
+      category: "CPUs"
+    )  
+  end
+puts "3 items created"
+
+3.times do |items|
+  Item.create!(
+      primary: "#{items}",
+      main_image: "http://via.placeholder.com/200x200",
+      details: "details",
+      price: "39.99",
+      brand: "Logitech",      
+      item_id: "item_#{items}",
+      category: "keyboard"
+    )  
+  end
+puts "3 items created"

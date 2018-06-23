@@ -18,4 +18,17 @@ class PagesController < ApplicationController
     ##
     @item = Item.find(params[:id])
   end
+
+  def cpus
+    
+  end
+
+  def monitors
+    
+  end
+
+  def keyboards
+    
+  end
+
 end
