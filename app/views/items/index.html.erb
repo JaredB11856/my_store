@@ -1,37 +1,47 @@
-<p id="notice"><%= notice %></p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<h1>Items</h1>
+    <title>Album example for Bootstrap</title>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Brand</th>
-      <th>Primary</th>
-      <th>Secondary</th>
-      <th>Details</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <tbody>    
-    <%= render @items %>   
-  </tbody>
-</table>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
 
-<br>
 
-<%= link_to 'New Item', new_item_path if logged_in?(:admin) %>
 
-<div class="album text-muted">
-  <div class="container">
+    <main role="main">     
 
-    <!--
-    <%#= source_helper("alert alert-warning") %>
-    
-    <div class="row <%#= "sortable"  %>">
-        <%#= render partial: '_item', collection: @items %>
-    </div>
-    -->
-  </div>
-</div>
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <%= render @items %>
+          </div>
+        </div>
+      </div>
+            
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+   
+  </body>
+</html>

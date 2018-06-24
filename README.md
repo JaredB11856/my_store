@@ -58,14 +58,6 @@ new home
 
 Old Home
 
-<h1>Homepage</h1>
-
-<h2>Category Bar</h2>
-  <div>Parts</div>
-  <div>PCs</div>
-  <div>Monitors</div>
-<hr>
-
 <h2>User Nav</h2>
   <div>Cart</div>
   <div>User</div>  
@@ -79,9 +71,7 @@ Old Home
     <div class="row">
         <div class="col-md-6"
         <% @items.each do |item| %>
-          <p><%= link_to (image_tag item.main_image ), item_path(item) unless item.main_image.nil?  %>
-            
-         </p>
+          <p><%= link_to (image_tag item.main_image ), item_path(item) unless item.main_image.nil?  %></p>
           <p><%= item.brand %> </p>
           <p><%= item.category %> </p>
           <p><%= item.details %> </p>

@@ -1,18 +1,13 @@
-<div class=col-md-4>
-  <div class="card" data-id="<%= item.id %>">    
-    <tr>
-        <td>Item ID:<%= item.item_id %></td>
-        <%#= link_to (image_tag item.main_image ), item_path(item.id) unless item.main_image.nil?  %>   
-        <td><%= item.category %></td>
-        <td><%= item.brand %></td>
-        <td><%= item.primary %></td>
-        <td><%= item.secondary %></td>
-        <td><%= item.details %></td>        
-        <td><%= link_to item.status, toggle_status_item_path(item) %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) if logged_in?(:admin) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:admin) %></td>
-      </tr>
-  </div>  
+<div class="col-md-3">               
+  <div class="card mb-3 box-shadow">
+    <%= link_to (image_tag item.main_image ), item_path(item) unless item.main_image.nil?  %>                
+    <div class="card-body">
+      <%= item.price %>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+        </div>                   
+      </div>
+    </div>                
+  </div>
 </div>
-
