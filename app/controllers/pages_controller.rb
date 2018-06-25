@@ -17,18 +17,6 @@ class PagesController < ApplicationController
   def set_portfolio_item
     ##
     @item = Item.find(params[:id])
-  end
-
-  def cpus
-    
-  end
-
-  def monitors
-    
-  end
-
-  def keyboards
-    
-  end
+  end  
 
 end

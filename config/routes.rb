@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
 
-  get 'cpus', to: 'pages#cpus'
-  get 'monitors', to: 'pages#monitors'
-  get 'keyboards', to: 'pages#keyboards'
+  get 'cpus', to: 'categories#cpus'
+  get 'monitors', to: 'categories#monitors'
+  get 'keyboards', to: 'categories#keyboards'
 
   root to: 'pages#home'  
 end

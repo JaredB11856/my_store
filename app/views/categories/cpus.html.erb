@@ -1,0 +1,65 @@
+<h1>CPUs</h1>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Album example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="items.scss" rel="stylesheet">
+  </head>
+
+
+
+    <main role="main">     
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">            
+            <% file_name = File.basename(__FILE__, '.html.erb') %>
+            <% @items.each do |item| if item.category == "#{file_name}" %>
+              <div class="col-md-3">               
+                <div class="card mb-3 box-shadow">                  
+                  <%= link_to (image_tag item.main_image ), item_path(item)   %></p>     
+                  <div class="card-body">
+                    <%= item.price %>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+                      </div>                   
+                    </div>
+                  </div>                
+                </div>item
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+            
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+   
+  </body>
+</html>

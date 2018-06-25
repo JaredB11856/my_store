@@ -6,7 +6,7 @@
       price: "129.99",
       brand: "Samsung",      
       item_id: "item_#{items}",
-      category: "Monitor"
+      category: "Monitors".downcase
     )  
   end
 puts "3 items created"
@@ -19,7 +19,7 @@ puts "3 items created"
       price: "349.99",
       brand: "Intel",      
       item_id: "item_#{items}",
-      category: "CPUs"
+      category: "CPUs".downcase
     )  
   end
 puts "3 items created"
@@ -32,7 +32,7 @@ puts "3 items created"
       price: "39.99",
       brand: "Logitech",      
       item_id: "item_#{items}",
-      category: "keyboard"
+      category: "Keyboards".downcase
     )  
   end
 puts "3 items created"
