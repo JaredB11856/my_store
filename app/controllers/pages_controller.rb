@@ -14,6 +14,9 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def cart
+  end
+
   def set_portfolio_item
     ##
     @item = Item.find(params[:id])

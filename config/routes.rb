@@ -9,10 +9,12 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
+  get 'cart', to: 'pages#cart'
 
   get 'cpus', to: 'categories#cpus'
   get 'monitors', to: 'categories#monitors'
   get 'keyboards', to: 'categories#keyboards'
+
 
   root to: 'pages#home'  
 end
