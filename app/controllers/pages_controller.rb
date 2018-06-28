@@ -14,7 +14,17 @@ class PagesController < ApplicationController
   def contact
   end
 
+  ##TODO make better name than user_page
+  def user_page
+  end
+
   def cart
+  end
+
+  def checkout
+  end
+
+  def order_summary
   end
 
   def set_portfolio_item

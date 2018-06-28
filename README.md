@@ -81,3 +81,18 @@ Old Home
         
     </div>
 </div>
+
+Original Filter Menu
+<% filter = Array.new %>
+<% @items.each do |item| %>                     
+  <% filter.push item.brand %>  
+  <% filter.push item.primary %>                     
+  <% filter.uniq! %>                        
+<% end %> 
+
+<% filter.each do |x| %>
+  <div class="col-md-3">
+    <%  %>
+    <%= link_to "#{x}"  %>  
+  </div>
+<% end %>
