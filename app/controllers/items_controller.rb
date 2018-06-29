@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.all.page(params[:page]).per(4)
     @page_title = "My Store | Items"
   end
 
