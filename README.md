@@ -96,3 +96,34 @@ Original Filter Menu
     <%= link_to "#{x}"  %>  
   </div>
 <% end %>
+
+
+Application Layout OLD
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title %></title>
+    <%= csrf_meta_tags %>
+
+    <meta name="keywords" content="<%= @seo_keywords %>" />
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>    
+    <%= render "shared/application_nav" %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    
+
+    <%= yield %>
+
+    <%= render "shared/application_footer" %>
+
+    <% if session[:source] %>
+     <p>Thanks for visiting me from <%= session[:source] %></p>
+    <% end %>
+  </body>
+</html>
