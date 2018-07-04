@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   get 'products/index'
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
-  resources :items, except: [:show] do
+  resources :products, except: [:show] do
     member do
       get :toggle_status
     end
   end
-  get 'items/:id', to: 'items#show', as: 'item_show'
+  get 'products/:id', to: 'products#show', as: 'product_show'
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'

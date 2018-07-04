@@ -1,4 +1,4 @@
-<h1>Monitors</h1>
+<h1>CPUs</h1>
 
 <!doctype html>
 <html lang="en">
@@ -15,10 +15,9 @@
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="items.scss" rel="stylesheet">
+    <link href="products.scss" rel="stylesheet">
   </head>
   <%= render 'shared/category_nav' %>
-  
 
 
     <main role="main">     
@@ -26,21 +25,21 @@
       <div class="album py-5 bg-light">
         <div class="container">
 
-          <div class="row">         
+          <div class="row">            
             <% file_name = File.basename(__FILE__, '.html.erb') %>
-            <% @items.each do |item| if item.category == "#{file_name}" %>
+            <% @products.each do |product| if product.category == "#{file_name}" %>
               <div class="col-md-3">               
                 <div class="card mb-3 box-shadow">                  
-                  <%= link_to (image_tag item.main_image ), item_path(item)   %></p>     
+                  <%= link_to (image_tag product.main_image ), product_path(product)   %></p>     
                   <div class="card-body">
-                    <%= item.price %>
+                    <%= product.price %>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
                       </div>                   
                     </div>
                   </div>                
-                </div>item
+                </div>
               </div>
               <% end %>
             <% end %>

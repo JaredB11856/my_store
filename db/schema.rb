@@ -27,22 +27,6 @@ ActiveRecord::Schema.define(version: 20180629213717) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string   "category"
-    t.string   "brand"
-    t.string   "primary"
-    t.string   "secondary"
-    t.text     "details"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.text     "main_image"
-    t.decimal  "price"
-    t.string   "item_id"
-    t.string   "slug"
-    t.integer  "status",     default: 0
-    t.index ["slug"], name: "index_items_on_slug", unique: true, using: :btree
-  end
-
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "order_id"
@@ -74,10 +58,20 @@ ActiveRecord::Schema.define(version: 20180629213717) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price",      precision: 12, scale: 3
+    t.decimal  "price",            precision: 12, scale: 3
     t.boolean  "active"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "category"
+    t.string   "brand"
+    t.string   "filter_primary"
+    t.string   "filter_secondary"
+    t.text     "details"
+    t.text     "main_image"
+    t.string   "product_id"
+    t.integer  "status",                                    default: 0
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_products_on_slug", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|
