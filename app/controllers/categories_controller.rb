@@ -6,15 +6,18 @@ before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_stat
   # GET /items
   # GET /items.json
   def cpus 
-    @products = Product.all
+   @products = Product.all.page(params[:page]).per(8)
+    @order_item = current_order.order_items.new
   end
 
   def keyboards
-    @products = Product.all
+   @products = Product.all.page(params[:page]).per(8)
+    @order_item = current_order.order_items.new
   end
 
   def monitors
-    @products = Product.all
+    @products = Product.all.page(params[:page]).per(8)
+    @order_item = current_order.order_items.new
   end
 
 
