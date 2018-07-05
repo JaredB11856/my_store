@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   access all: [:show], user: {except: [:destroy, :new, :Create, :update, :edit]}, admin: :all
 
   def index
-    @products = Product.all.page(params[:page]).per(4)
+    @products = Product.all.page(params[:page]).per(8)
     @order_item = current_order.order_items.new
   end
 

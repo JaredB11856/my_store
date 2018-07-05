@@ -60,7 +60,9 @@
           <div class="album py-5 bg-light">
             <div class="container">
               <div class="row">                
-                <%= render @products %>                
+                <% @products.each do |product| %>
+                  <%= render "product_row", product: product, order_item: @order_item %>
+                <% end %>                
               </div>   
                 <%= paginate @products %>
             </div>

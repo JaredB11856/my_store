@@ -1,6 +1,6 @@
-<div class="well">
-
-  <div class="row">
+<div class="col-md-3">               
+  <div class="card mb-3 box-shadow">
+    <%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %>
     <div class="col-xs-8">
       <h4><%= product.name %></small></h4>
     </div>
