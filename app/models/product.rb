@@ -1,5 +1,10 @@
 class Product < ActiveRecord::Base
-   enum status: { active: 0, inactive: 1 }
+  include PgSearch
+
+  pg_search_scope :search, against: [:name, :brand],
+    using: { tsearch: { dictionary: "english" }}  
+
+  enum status: { active: 0, inactive: 1 }
   extend FriendlyId
   friendly_id :product_id, use: :slugged
   validates_presence_of :category, :main_image

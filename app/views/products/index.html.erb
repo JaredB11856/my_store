@@ -16,6 +16,12 @@
     <!-- Custom styles for this template 
     <link href="album.css" rel="stylesheet"> -->
     <%= render 'shared/category_nav' %>
+
+    <%= form_tag products_path, method: :get do %>      
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag "Search", name: nil %>      
+    <% end %>  
+
   </head>  
 
   <body>
@@ -25,7 +31,8 @@
         <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-4">                    
           <div class="album py-5 bg-light">
             <div class="container">
-              <div class="row">                
+              <div class="row">   
+                         
                 <% @products.each do |product| %>
                   <%= render "product_row", product: product, order_item: @order_item %>
                 <% end %>                

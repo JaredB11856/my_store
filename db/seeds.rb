@@ -8,7 +8,7 @@
       price: "129.99",
       brand: "Samsung",      
       category: "Monitors".downcase,
-      name: "MonitrX",
+      name: "MonitorX",
       id: 1,
       active: true,
       product_id: "product_1"
@@ -21,7 +21,7 @@
       price: "129.99",
       brand: "Samsung",      
       category: "Monitors".downcase,
-      name: "MonitrX",
+      name: "MonitorX",
       id: 2,
       active: true,
       product_id: "product_2"
@@ -34,7 +34,7 @@
       price: "129.99",
       brand: "Samsung",      
       category: "Monitors".downcase,
-      name: "MonitrX",
+      name: "MonitorX",
       id: 3,
       active: true,
       product_id: "product_3"
