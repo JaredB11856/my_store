@@ -25,7 +25,13 @@
       
     </ul>
     <form class="form-inline my-2 my-md-0">
-      <input class="form-control" type="text" placeholder="Search">
+
+      <%= form_tag products_path, method: :get do %>   
+      <div class="form-control" >         
+        <%= text_field_tag :query, params[:query], class: 'form-control'%>
+        <%= submit_tag "Search", name: nil, class: 'form-control' %>      
+      </div>
+      <% end %>  
     </form>
   </div>
 </nav>
