@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   #get 'cart', to: 'pages#cart'
   get 'checkout', to: 'carts#checkout'
+  get 'order_confirmation', to: 'carts#order_confirmation'
   get 'user_page', to: 'pages#user_page'
 
   get 'cpus', to: 'categories#cpus'
