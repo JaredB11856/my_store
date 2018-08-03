@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :invoices
+  
   ############################################################################################
   ## PeterGate Roles                                                                        ##
   ## The :user role is added by default and shouldn't be included in this list.             ##
