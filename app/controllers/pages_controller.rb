@@ -16,6 +16,11 @@ class PagesController < ApplicationController
 
   ##TODO make better name than user_page
   def user_page
+    @invoices = Invoice.all
+  end
+
+  def invoice
+    @invoices = Invoice.all
   end
 
   def cart

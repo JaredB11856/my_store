@@ -1,7 +1,15 @@
+<%= render 'shared/category_nav' %>
 <h1>User Page</h1>
 <h4>Shipping Address</h4>
 Address 1
 <br>Address 2 *default 
 <h4>Order History</h4>
 Invoice | Date Created | Tracking | Total
-<br>Invoice 1
+<br>
+<% @invoices.each do |invoice| %>
+  <%= link_to invoice.name , user_page_invoice_path  %>
+  <%= invoice.created_at.strftime("%m-%d-%Y") %>
+  <%= link_to invoice.tracking , "#"  %>
+  <%= invoice.total %>
+  <br>
+<% end %>

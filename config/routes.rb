@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'checkout', to: 'carts#checkout'
   get 'order_confirmation', to: 'carts#order_confirmation'
   get 'user_page', to: 'pages#user_page'
+  get 'user_page/invoice', to: 'pages#invoice'
 
   get 'cpus', to: 'categories#cpus'
   get 'monitors', to: 'categories#monitors'
