@@ -4,12 +4,16 @@
 Address 1
 <br>Address 2 *default 
 <h4>Order History</h4>
+
+<p>The sum is:</p><%= @sum %> <br>
 Invoice | Date Created | Tracking | Total
 <br>
-<% @invoices.each do |invoice| %>
-  <%= link_to invoice.name , user_page_invoice_path  %>
-  <%= invoice.created_at.strftime("%m-%d-%Y") %>
-  <%= link_to invoice.tracking , "#"  %>
-  <%= invoice.total %>
+
+<br>
+<% @order_items.each do |order_item| %>
+  <%= link_to order_item.id, invoice_path(order_item) %>
+  <%= order_item.created_at.strftime("%m-%d-%Y") %>
+  <%#= link_to order_item.tracking , "#"  %>
+  <%#= order_item.total %>  
   <br>
 <% end %>

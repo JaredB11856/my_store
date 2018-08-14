@@ -20,16 +20,28 @@ Rails.application.routes.draw do
   get 'checkout', to: 'carts#checkout'
   get 'order_confirmation', to: 'carts#order_confirmation'
   get 'user_page', to: 'pages#user_page'
-  get 'user_page/invoice', to: 'pages#invoice'
+  
 
   get 'cpus', to: 'categories#cpus'
   get 'monitors', to: 'categories#monitors'
   get 'keyboards', to: 'categories#keyboards'
 
+  #get'/userpage/invoice/:id', to: 'pages#user_page', as: 'userpage'
+
   
 
 
   #root to: 'pages#home'  
+
+  
+  get'/user_page/invoices', to: 'invoices#index', as: 'invoices'
+  #
+  #
+  get'/user_page/invoices/:id', to: 'invoices#show', as: 'invoice'
+
+
+
+
 
   resources :search, only: [:index]
   resources :products

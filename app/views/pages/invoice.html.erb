@@ -1,3 +1,27 @@
+<br>
+<%#= @order_item.find_by_id"1" %>
+<br>
+<%= @sum %>
+
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_items.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+  </p>
+<% else %>
+  <% @order_items.each do |order_item| %>    
+    <%= render 'pages/invoice_row', product: order_item.product, order_item: order_item, show_total: true %>        
+  
+
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -111,3 +135,6 @@
       </div>
     </div>
 </div>
+<% end %>    
+  <hr>
+<% end %>
