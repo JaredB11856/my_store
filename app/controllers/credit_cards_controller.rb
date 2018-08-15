@@ -23,9 +23,8 @@ class CreditCardsController < ApplicationController
   # POST /credit_cards
   def create
     @credit_card = CreditCard.new(credit_card_params)
-
-    if @credit_card.save
-      redirect_to order_confirmation_path, notice: 'Your order has been placed.'      
+    if @credit_card.save  
+      redirect_to order_summary_path
     else
       render :new
     end

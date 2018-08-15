@@ -12,14 +12,22 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
+
+  #get '/button', to: 'carts#place_order', as: 'button'
+
   get 'products/:id', to: 'products#show', as: 'product_show'
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   #get 'cart', to: 'pages#cart'
   get 'checkout', to: 'carts#checkout'
+  get 'order_summary', to: 'carts#order_summary'
+  
+  put 'order_confirmation', to: 'carts#order_confirmation', as: 'button'
   get 'order_confirmation', to: 'carts#order_confirmation'
+
   get 'user_page', to: 'pages#user_page'
+
   
 
   get 'cpus', to: 'categories#cpus'

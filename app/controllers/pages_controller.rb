@@ -31,10 +31,7 @@ class PagesController < ApplicationController
   end
 
   def checkout
-  end
-
-  def order_summary
-  end
+  end  
 
   def set_portfolio_item
     ##

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Payment</title>
+  <title>Order Summary</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
     <section class="payment-form dark">
       <div class="container">
         <div class="block-heading">
-          <h2>Payment</h2>
+          <h2>Order Summary</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
         </div>
         <div class="container">          
@@ -33,16 +33,14 @@
                   <div class="summary-item"><span class="text">Discount</span><span class="price">$<%= discount = 0 %></span></div>
                   <div class="summary-item"><span class="text">Shipping</span><span class="price">$<%= shipping = 10 %> </span></div>
                   <div class="summary-item"><span class="text">Total</span><span class="price">$<%= subtotal + shipping %></span></div>
-                  
+                  <div class="form-group">          
+                    <%= button_to 'Place Order', button_path, method: :put, class: 'btn btn-primary btn-block'%>                    
+                  </div>  
                 </div>
               </div>
             </div> 
           </div>
-        </div>
-
-        <%= render 'place_order', credit_card: @credit_card %>
-
-        
+        </div>        
       </div>
     </section>
   </main>
