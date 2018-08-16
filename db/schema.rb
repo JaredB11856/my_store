@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180808223005) do
+ActiveRecord::Schema.define(version: 20180816154230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20180808223005) do
     t.decimal  "total_price", precision: 12, scale: 3
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.integer  "invoice_id"
+    t.index ["invoice_id"], name: "index_order_items_on_invoice_id", using: :btree
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
   end
@@ -113,6 +115,7 @@ ActiveRecord::Schema.define(version: 20180808223005) do
   end
 
   add_foreign_key "invoices", "users"
+  add_foreign_key "order_items", "invoices"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
 end

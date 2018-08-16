@@ -1,2 +1,17 @@
 show.html.erb
-<%= @invoice.inspect %>
+<%#= @invoice.inspect %>
+<hr>
+
+invoice.order_items
+<br>
+<% @invoice.order_items.each do |x| %>
+  <%=  x.invoice_id %>
+  <br>
+<% end %>
+<hr>
+
+<%#= @invoice.order_items %>
+
+<hr>
+
+<%#= @order_items.inspect %>

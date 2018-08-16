@@ -9,20 +9,47 @@ class CartsController < ApplicationController
   def order_confirmation
     @order_items = current_order.order_items
 
-
-
+    @order_items = OrderItem.all
+    @invoices = Invoice.all
     @order = current_order
     @oi = Order.all    
   end
   def order_summary
      @order_items = current_order.order_items   
+     
+  end
 
+  def assign_invoice_to_order_item
+    User.last.invoices.create!(
+      name: "Invoice",
+      tracking: "1Z9Y97F0YN0112988",
+      total: "1"
+
+    )
+    
+      @order_items = current_order.order_items
+
+      puts 'Order_items:'
+      puts @order_items.ids
+      @invoice_id = Invoice.last.id
+      @order_items.update(invoice_id: "#{@invoice_id}")
+      #@order_items.each do |oi|
+      #  puts "Hello:"
+      #  puts oi.invoice_id
+      #end
+      
   end
 
   def place_order    
     @order = current_order
     @order.update!(order_status_id: 'placed' )
+    assign_invoice_to_order_item
     session.delete(:order_id)    
+    
+    
+
+
+
     redirect_to order_confirmation_path, notice: "You're order has been placed."
   end
 end
