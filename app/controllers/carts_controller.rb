@@ -8,10 +8,11 @@ class CartsController < ApplicationController
   end
   def order_confirmation
     @order_items = current_order.order_items
-    @order = current_order
-    @oi = Order.all
 
-    
+
+
+    @order = current_order
+    @oi = Order.all    
   end
   def order_summary
      @order_items = current_order.order_items   
@@ -20,7 +21,7 @@ class CartsController < ApplicationController
 
   def place_order    
     @order = current_order
-    @order.update!(order_status_id: 'cart' )
+    @order.update!(order_status_id: 'placed' )
     session.delete(:order_id)    
     redirect_to order_confirmation_path, notice: "You're order has been placed."
   end
