@@ -3,8 +3,14 @@
 <h1>Order Confirmation</h1>
 <p id="notice"><%= notice %></p>
 
-<%= @order_items.inspect %>
+<% @oi.each do |order| %>    
+    <%= order.id %>       
+    <%= order.order_status_id %>  
+    <br> 
+  <% end %>   
 <hr>
 <%= @order.inspect %>
 <hr>
-<%= @order.order_status_id %>
+Order_status: <%= @order.order_status_id %>
+<hr>
+Session order_id: <%= session[:order_id] %>

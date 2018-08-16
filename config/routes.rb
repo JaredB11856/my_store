@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'checkout', to: 'carts#checkout'
   get 'order_summary', to: 'carts#order_summary'
   
-  put 'order_confirmation', to: 'carts#order_confirmation', as: 'button'
+  put 'order_confirmation', to: 'carts#place_order', as: 'button'
   get 'order_confirmation', to: 'carts#order_confirmation'
 
   get 'user_page', to: 'pages#user_page'
