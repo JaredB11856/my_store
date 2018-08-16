@@ -70,10 +70,9 @@ ActiveRecord::Schema.define(version: 20180808223005) do
     t.decimal  "tax",             precision: 12, scale: 3
     t.decimal  "shipping",        precision: 12, scale: 3
     t.decimal  "total",           precision: 12, scale: 3
-    t.integer  "order_status_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
+    t.integer  "order_status_id",                          default: 0
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -116,5 +115,4 @@ ActiveRecord::Schema.define(version: 20180808223005) do
   add_foreign_key "invoices", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "orders", "order_statuses"
 end

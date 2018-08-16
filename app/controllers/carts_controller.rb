@@ -20,10 +20,8 @@ class CartsController < ApplicationController
 
   def place_order    
     @order = current_order
-    @order.update!(order_status_id:2 )
-    session.delete(:order_id)
-
-    puts "You're order has been placed."
-    redirect_to order_confirmation_path, notice: 'Credit card was successfully updated.'
+    @order.update!(order_status_id: 'cart' )
+    session.delete(:order_id)    
+    redirect_to order_confirmation_path, notice: "You're order has been placed."
   end
 end

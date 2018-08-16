@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  enum order_status_id: { cart: 0, placed: 1 }
   belongs_to :order_status
   has_many :order_items
   before_create :set_order_status
@@ -9,7 +10,7 @@ class Order < ActiveRecord::Base
   end
 private
   def set_order_status
-    self.order_status_id = 1
+    self.order_status_id = 'cart'
   end
 
   def update_subtotal
