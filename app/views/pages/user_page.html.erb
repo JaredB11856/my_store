@@ -10,9 +10,9 @@ Invoice | Date Created | Tracking | Total
 <br>
 
 <br>
-<% @order_items.each do |order_item| %>
-  <%= link_to order_item.id, invoice_path(order_item) %>
-  <%= order_item.created_at.strftime("%m-%d-%Y") %>
+<% @invoices.each do |invoice| %>
+  <%= link_to invoice.id, invoice_path(invoice) %>
+  <%= invoice.created_at.strftime("%m-%d-%Y") %>
   <%#= link_to order_item.tracking , "#"  %>
   <%#= order_item.total %>  
   <br>

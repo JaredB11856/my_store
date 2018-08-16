@@ -20,6 +20,7 @@ class PagesController < ApplicationController
     #@order_item = @order.order_items.find(params[:id])
     #@order_item = OrderItem.find(params[:id])
     @order_items = OrderItem.all
+    @invoices = Invoice.all
   end
 
   def invoice

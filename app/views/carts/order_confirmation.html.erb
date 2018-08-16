@@ -2,36 +2,3 @@
 
 <h1>Order Confirmation</h1>
 <p id="notice"><%= notice %></p>
-
-<% @oi.each do |order| %>    
-    <%= order.id %>       
-    <%= order.order_status_id %>  
-    <br> 
-  <% end %>   
-  <br>
-  OrderItems
-  <br>
-<% @order_items.each do |order_item| %>
-  <%= link_to order_item.id, invoice_path(order_item) %>
-  <%= order_item.created_at.strftime("%m-%d-%Y") %>
-  <%#= link_to order_item.tracking , "#"  %>
-  <%= order_item.invoice_id %>  
-  <%= order_item.inspect %>
-  <br>
-<% end %>
-Invoices
-<br>
-<% @invoices.each do |invoice| %>
-  <%= link_to invoice.id, invoice_path(invoice) %>
-  <%= invoice.created_at.strftime("%m-%d-%Y") %>
-  <%#= link_to order_item.tracking , "#"  %>
-  <%#= order_item.total %>  
-  <br>
-<% end %>
-
-<hr>
-<%= @order.inspect %>
-<hr>
-Order_status: <%= @order.order_status_id %>
-<hr>
-Session order_id: <%= session[:order_id] %>
