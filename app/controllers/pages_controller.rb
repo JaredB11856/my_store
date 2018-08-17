@@ -21,6 +21,12 @@ class PagesController < ApplicationController
     #@order_item = OrderItem.find(params[:id])
     @order_items = OrderItem.all
     @invoices = Invoice.all
+    @shipping_addresses = ShippingAddress.all
+  end
+
+  def new_shipping_address
+    #@shipping_address = ShippingAdress.new
+    #3.times { @shipping_address.build}
   end
 
   def invoice

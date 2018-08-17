@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shipping_addresses
   resources :credit_cards
   get 'order_items/create'
   get 'order_items/update'
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
 
   get 'user_page', to: 'pages#user_page'
 
-  
+  get 'new_shipping_address', to: 'pages#new_shipping_address'
 
   get 'cpus', to: 'categories#cpus'
   get 'monitors', to: 'categories#monitors'

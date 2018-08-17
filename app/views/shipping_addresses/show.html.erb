@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shipping_address.name %>
+</p>
+
+<p>
+  <strong>Address Line 1:</strong>
+  <%= @shipping_address.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address Line 2:</strong>
+  <%= @shipping_address.address_line_2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @shipping_address.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @shipping_address.state %>
+</p>
+
+<p>
+  <strong>Zip Code:</strong>
+  <%= @shipping_address.zip_code %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @shipping_address.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_shipping_address_path(@shipping_address) %> |
+<%= link_to 'Back', shipping_addresses_path %>

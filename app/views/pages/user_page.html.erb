@@ -1,7 +1,13 @@
 <%= render 'shared/category_nav' %>
 <h1>User Page</h1>
 <h4>Shipping Address</h4>
-Address 1
+<% @shipping_addresses.each do |shipping_address| %>
+  <%= link_to shipping_address.id, shipping_address_path(shipping_address) %>
+  <%= shipping_address.created_at.strftime("%m-%d-%Y") %>
+  <%#= link_to order_item.tracking , "#"  %>
+  <%#= order_item.total %>  
+  <br>
+<% end %>
 <br>Address 2 *default 
 <h4>Order History</h4>
 
