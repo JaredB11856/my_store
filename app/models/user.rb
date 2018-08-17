@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :invoices
+  has_many :shipping_addresses
   
   ############################################################################################
   ## PeterGate Roles                                                                        ##

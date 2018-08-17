@@ -136,6 +136,15 @@ puts "3 products created"
 end
 puts "3 Invoices created"  
 
+User.last.shipping_addresses.create!(
+    name: "Jared Brown", 
+    address_line_1:"15000 W 1800 N", 
+    address_line_2: "Po Box 123", 
+    city: "Somewhere", state: "ID", 
+    zip_code: "83440"
+  )
+
+
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
