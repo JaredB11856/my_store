@@ -1,3 +1,6 @@
+User.create!(email: "test2@test.com", password: "123456", name: "test", shipping_addresses: [{name: "Jared", address_line_1: "12400 W"}, {name:"Jared Brown", address_line__1:"10000 West"}])
+
+
 Product.delete_all
 
 User.create!(
