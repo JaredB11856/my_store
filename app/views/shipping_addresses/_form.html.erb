@@ -46,6 +46,13 @@
     <%= f.text_field :phone_number %>
   </div>
 
+  <div class="control-group">
+    <%= f.label "Status", class: 'control-label' %>
+    <div class="controls">
+      <%= f.select(:phone_number, options_for_select([['Default', 'Default']]), { include_blank: true }) %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
