@@ -23,3 +23,14 @@ Invoice | Date Created | Tracking | Total
   <%#= order_item.total %>  
   <br>
 <% end %>
+
+<h3>Shipping</h3>
+<br>
+Default shipping address:
+<select name="shipping_address[user_id]" id="shipping_address_user_id" class="btn"><option value="">Please select</option>   
+  <% @shipping_addresses.each do |shipping_address| %>              
+    <option value=<%"#{shipping_address}"%>>
+      <%= shipping_address.address_line_1 %>                  
+    </option>              
+  <% end %>  
+<hr>
