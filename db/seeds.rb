@@ -1,4 +1,4 @@
-User.create!(email: "test2@test.com", password: "123456", name: "test", shipping_addresses: [{name: "Jared", address_line_1: "12400 W"}, {name:"Jared Brown", address_line__1:"10000 West"}])
+
 
 
 Product.delete_all
@@ -139,13 +139,15 @@ puts "3 products created"
 end
 puts "3 Invoices created"  
 
-User.last.shipping_addresses.create!(
-    name: "Jared Brown", 
-    address_line_1:"15000 W 1800 N", 
-    address_line_2: "Po Box 123", 
-    city: "Somewhere", state: "ID", 
-    zip_code: "83440"
-  )
+3.times do |address|
+  User.last.shipping_addresses.create!(
+      name: "Jared Brown", 
+      address_line_1:"1#{address}000 W 1800 N", 
+      address_line_2: "Po Box #{address}23", 
+      city: "Somewhere", state: "ID", 
+      zip_code: "83440"
+   )
+end
 
 
 OrderStatus.delete_all

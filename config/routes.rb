@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :shipping_addresses
+  resources :shipping_addresses do
+  collection {
+    post :add
+  }
+end
   resources :credit_cards
   get 'order_items/create'
   get 'order_items/update'
@@ -21,9 +25,12 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   #get 'cart', to: 'pages#cart'
+  get 'shipping', to: 'shipping_addresses#shipping'
+
   get 'checkout', to: 'carts#checkout'
   get 'order_summary', to: 'carts#order_summary'
   
+  put 'checkout', to: 'carts#submit_shipping', as: 'button2'
   put 'order_confirmation', to: 'carts#place_order', as: 'button'
   get 'order_confirmation', to: 'carts#order_confirmation'
 
@@ -51,7 +58,7 @@ Rails.application.routes.draw do
 
 
 
-
+  
   resources :search, only: [:index]
   resources :products
   resource :cart, only: [:show]

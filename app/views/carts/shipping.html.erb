@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Payment</title>
+  <title>Order Summary</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -13,8 +13,8 @@
     <section class="payment-form dark">
       <div class="container">
         <div class="block-heading">
-          <h2>Payment</h2>
-          <p>Enter shipping & payment information</p>
+          <h2>Shipping</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
         </div>
         <div class="container">          
           <div class="content">
@@ -32,17 +32,32 @@
                   <div class="summary-item"><span class="text">Subtotal</span><span class="price">$<%= subtotal = @order_items.sum(&:total_price) %></span></div>
                   <div class="summary-item"><span class="text">Discount</span><span class="price">$<%= discount = 0 %></span></div>
                   <div class="summary-item"><span class="text">Shipping</span><span class="price">$<%= shipping = 10 %> </span></div>
-                  <div class="summary-item"><span class="text">Total</span><span class="price">$<%= subtotal + shipping %></span></div>                  
+                  <div class="summary-item"><span class="text">Total</span><span class="price">$<%= subtotal + shipping %></span></div>
+                  <div class="form-group">          
+                    <%= button_to 'Place Order', button2_path, method: :put, class: 'btn btn-primary btn-block'%>
+                  </div>  
                 </div>
               </div>
             </div> 
           </div>
         </div>        
-        <%= render 'place_order', credit_card: @credit_card %>        
       </div>
-    </section>   
+    </section>
+    <h3>Shipping</h3>
+    <%= form_for @shipping_address do |f| %>
+    <%= f.collection_select :person_id, ShippingAddress.all, :id, :name_with_initial, prompt: true %>
+      <%= f.submit %>
+    <% end %>
+
+
+      <select name="shipping_address[user_id]" id="shipping_address_user_id" class="btn"><option value="">Please select</option>   
+      <% @shipping_addresses.each do |shipping_address| %>              
+        <option value=<%"#{shipping_address}"%>>
+          <%= shipping_address.address_line_1 %>                  
+        </option>              
+      <% end %>  
+    <hr>    
   </main>
-  <%= session.inspect %>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

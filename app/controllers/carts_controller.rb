@@ -2,9 +2,11 @@ class CartsController < ApplicationController
   def show
     @order_items = current_order.order_items
   end
+  
   def checkout
     @order_items = current_order.order_items   
     @credit_card = CreditCard.new 
+    @shipping_addresses = ShippingAddress.all
   end
   def order_confirmation
     @order_items = current_order.order_items
@@ -15,8 +17,10 @@ class CartsController < ApplicationController
     @oi = Order.all    
   end
   def order_summary
-     @order_items = current_order.order_items   
-     
+     @order_items = current_order.order_items  
+
+
+         
   end
 
   def assign_invoice_to_order_item
@@ -44,12 +48,28 @@ class CartsController < ApplicationController
     @order = current_order
     @order.update!(order_status_id: 'placed' )
     assign_invoice_to_order_item
-    session.delete(:order_id)    
-    
-    
-
-
+    session.delete(:order_id)
 
     redirect_to order_confirmation_path, notice: "You're order has been placed."
   end
+
+  def submit_shipping
+    puts "Hello"
+    @some_var = params[:start_point]
+    puts @some_var
+    puts "Hello"
+        
+    redirect_to checkout_path
+  end
+
+  
+    # Use callbacks to share common setup or constraints between actions.
+    def set_shipping_address
+      @shipping_address = ShippingAddress.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def shipping_address_params
+      params.require(:shipping_address).permit(:name, :address_line_1, :city, :state, :zip_code)
+    end
 end

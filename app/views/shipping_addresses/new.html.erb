@@ -3,3 +3,5 @@
 <%= render 'form', shipping_address: @shipping_address %>
 
 <%= link_to 'Back', shipping_addresses_path %>
+
+<%= User.last.shipping_addresses[0].inspect %>
