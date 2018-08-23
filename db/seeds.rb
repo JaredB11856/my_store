@@ -150,6 +150,22 @@ puts "3 Invoices created"
       invoice_id: Invoice.last.id
    )
 end
+puts "3 Shipping addresses created" 
+
+3.times do |address|
+  BillingInformation.create!(
+      name: "Jared Brown", 
+      address_line_1:"1#{address}000 W 1800 N", 
+      address_line_2: "Po Box #{address}23", 
+      city: "Somewhere", 
+      state: "ID", 
+      zip_code: "83440",
+      cc_type: "Visa",
+      cc_last_four: "1234",
+      invoice_id: Invoice.last.id
+   )
+end
+puts "3 Billing informations created" 
 
 
 OrderStatus.delete_all

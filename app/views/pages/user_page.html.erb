@@ -8,7 +8,15 @@
   <%#= order_item.total %>  
   <br>
 <% end %>
-<br>Address 2 *default 
+<br>Address 2 *default
+<h4>Billing Information</h4>
+<% @billing_informations.each do |billing_information| %>
+  <%= link_to billing_information.id, billing_information_path(billing_information) %>
+  <%= billing_information.created_at.strftime("%m-%d-%Y") %>
+  <%#= link_to order_item.tracking , "#"  %>
+  <%#= order_item.total %>  
+  <br>
+<% end %> 
 <h4>Order History</h4>
 
 <p>The sum is:</p><%= @sum %> <br>

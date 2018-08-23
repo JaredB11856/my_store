@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :billing_informations
   resources :shipping_addresses do
   collection {
     post :add
