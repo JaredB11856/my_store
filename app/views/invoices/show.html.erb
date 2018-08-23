@@ -37,10 +37,12 @@
         <div class="col-xs-6 text-right">
           <address>
             <strong>Shipped To:</strong><br>
-            Jane Smith<br>
-            1234 Main<br>
-            Apt. 4B<br>
-            Springfield, ST 54321
+            <%= @invoice.shipping_address.name %><br>
+            <%= @invoice.shipping_address.address_line_1 %> <br>
+            <%= @invoice.shipping_address.address_line_2 %><br>
+            <%= @invoice.shipping_address.city %>, 
+            <%= @invoice.shipping_address.state %> 
+            <%= @invoice.shipping_address.zip_code %>
           </address>
         </div>
       </div>

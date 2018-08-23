@@ -1,11 +1,11 @@
 <tbody>
   <!-- foreach ($order->lineItems as $line) or some such thing here -->
-  <% @invoice.order_items.each do |x| %>
+  <% @invoice.order_items.each do |order_item| %>
   <tr>
-    <td><%= x.product_id %></td>
-    <td class="text-center">$<%= x.unit_price %></td>
-    <td class="text-center"><%= x.quantity %></td>
-    <td class="text-right">$<%= x.total_price %></td>
+    <td><%= order_item.product_id %></td>
+    <td class="text-center">$<%= order_item.unit_price %></td>
+    <td class="text-center"><%= order_item.quantity %></td>
+    <td class="text-right">$<%= order_item.total_price %></td>
   </tr>   
   <% end %>
 </tbody>

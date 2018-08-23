@@ -140,12 +140,14 @@ end
 puts "3 Invoices created"  
 
 3.times do |address|
-  User.last.shipping_addresses.create!(
+  ShippingAddress.create!(
       name: "Jared Brown", 
       address_line_1:"1#{address}000 W 1800 N", 
       address_line_2: "Po Box #{address}23", 
-      city: "Somewhere", state: "ID", 
-      zip_code: "83440"
+      city: "Somewhere", 
+      state: "ID", 
+      zip_code: "83440",
+      invoice_id: Invoice.last.id
    )
 end
 
