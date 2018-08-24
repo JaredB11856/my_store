@@ -24,12 +24,7 @@ class CartsController < ApplicationController
   end
 
   def assign_invoice_to_order_item
-    User.last.invoices.create!(
-      name: "Invoice",
-      tracking: "1Z9Y97F0YN0112988",
-      total: "1"
-
-    )
+    
     
       @order_items = current_order.order_items
 

@@ -12,7 +12,7 @@ class ShippingAddressesController < ApplicationController
   def shipping
    @order_items = current_order.order_items
    @shipping_addresses = ShippingAddress.all
-   @shipping_address = User.last.shipping_addresses[0]     
+   @shipping_address = ShippingAddress.all[0]
   end
   # GET /shipping_addresses
   def index
@@ -47,9 +47,43 @@ class ShippingAddressesController < ApplicationController
   def update
 
     if proceed? == true
-      puts "Hello"
-      puts params[:shipping_address]
-      puts params[:commit]
+      User.last.invoices.create!(
+      name: "Invoice",
+      tracking: "1Z9Y97F0YN0112988",
+      total: "1"
+    )
+      @new_address = ShippingAddress.create!(
+      name: "Jared Brown", 
+      address_line_1:"15000 W 500 N", 
+      address_line_2: "Po Box 523", 
+      city: "Somewhere", 
+      state: "ID", 
+      zip_code: "83440",
+      invoice_id: Invoice.last.id
+   )
+      BillingInformation.create!(
+      name: "Jared Brown", 
+      address_line_1:"15000 W 500 N", 
+      address_line_2: "Po Box 523", 
+      city: "Somewhere", 
+      state: "ID", 
+      zip_code: "83440",
+      cc_type: "Visa",
+      cc_last_four: "1234",
+      invoice_id: Invoice.last.id
+   )
+    #@shipping_address = ShippingAddress.last.id
+    puts "Hello"
+    #puts @shipping_address.inspect
+    #puts @new_address.inspect
+    puts "Hello"
+    #@invoice_id = Invoice.last.id
+    #puts @invoice_id.inspect
+    #@order_items.update(invoice_id: "#{@invoice_id}")
+      
+      #puts ShippingAddress.find(params[:id])
+      puts params[:shipping_address].inspect
+      #puts params[:commit]
       puts params[:id]
       redirect_to button2_path  
       return    
