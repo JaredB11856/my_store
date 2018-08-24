@@ -14,7 +14,7 @@
   <div class="control-group">
     <%= f.label "Status", class: 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :name, ShippingAddress.all, :address_line_1, :address_line_1, prompt: true %>
+      <%= f.collection_select :shipping_address_id, ShippingAddress.all, :shipping_address_id, :address_line_1, prompt: true %>
       <%= f.submit "Proceed", class: 'btn btn-primary btn-block' %>      
       
     </div>

@@ -147,8 +147,9 @@ puts "3 Invoices created"
       city: "Somewhere", 
       state: "ID", 
       zip_code: "83440",
-      invoice_id: Invoice.last.id
+      invoice_id: Invoice.last.id,      
    )
+  ShippingAddress.last.update!(shipping_address_id: "#{ShippingAddress.last.id}") 
 end
 puts "3 Shipping addresses created" 
 
