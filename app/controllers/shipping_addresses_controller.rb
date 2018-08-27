@@ -52,9 +52,8 @@ class ShippingAddressesController < ApplicationController
       tracking: "1Z9Y97F0YN0112988",
       total: "1"
     )
-      @new_address = ShippingAddress.create!(
-    )
-    ShippingAddress.last.update!(shipping_address_id: "#{ShippingAddress.last.id}") 
+    @new_address = ShippingAddress.create!()
+    @new_address.update!(shipping_address_id: "#{ShippingAddress.last.id}") 
 
     BillingInformation.create!(
     name: "Jared Brown", 
@@ -76,7 +75,7 @@ class ShippingAddressesController < ApplicationController
                          zip_code: "#{@shipping_address.zip_code}",
                          phone_number: "#{@shipping_address.phone_number}"
       )      
-      ShippingAddress.last.update!(invoice_id: "#{ShippingAddress.last.id}")
+      @new_address.update!(invoice_id: "#{ShippingAddress.last.id}")
       redirect_to button2_path  
       return    
     end
