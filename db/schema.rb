@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180824202444) do
+ActiveRecord::Schema.define(version: 20180827220324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20180824202444) do
     t.string   "cc_last_four"
     t.integer  "user_id"
     t.integer  "invoice_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "billing_information_id"
+    t.index ["billing_information_id"], name: "index_billing_informations_on_billing_information_id", unique: true, using: :btree
     t.index ["invoice_id"], name: "index_billing_informations_on_invoice_id", using: :btree
     t.index ["user_id"], name: "index_billing_informations_on_user_id", using: :btree
   end
