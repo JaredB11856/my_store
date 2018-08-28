@@ -7,6 +7,7 @@ class CartsController < ApplicationController
     @order_items = current_order.order_items   
     @credit_card = CreditCard.new 
     @shipping_addresses = ShippingAddress.all
+    @billing_information = BillingInformation.all[0]
   end
   def order_confirmation
     @order_items = current_order.order_items
