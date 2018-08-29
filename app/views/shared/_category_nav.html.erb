@@ -5,28 +5,16 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExample03">
-    <ul class="navbar-nav mr-auto">     
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Core Components</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown03">
-          <a class="dropdown-item" <%= link_to "CPUs", cpus_path %> </a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>          
-      <li class="nav-item active">
-        <% %>
-        <a class="nav-link" <%= link_to "Keyboards", keyboards_path %> <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" <%= link_to "Monitors", monitors_path %> <span class="sr-only">(current)</span></a>
-      </li> 
+    <ul class="navbar-nav mr-auto">      
       <li class="nav-item active">
         <a class="nav-link" <%= link_to "Cart", cart_path %> <span class="sr-only">(current)</span></a>
       </li>   
       <li class="nav-item active">
         <a class="nav-link" <%= link_to "User", user_page_path %> <span class="sr-only">(current)</span></a>
-      </li>         
+      </li>  
+      <li class="nav-item active">
+        <a class="nav-link" <%= link_to "Admin", admin_path %> <span class="sr-only">(current)</span></a>
+      </li>       
       
       
     </ul>

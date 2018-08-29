@@ -4,8 +4,16 @@ class PagesController < ApplicationController
   
 
   def home
-    @items = Item.all
     @page_title = "My Store | Home"
+    
+    if params[:query].present?
+      @products = Product.search(params[:query]).page(params[:page]).per(8)
+    else
+      @products = Product.all.page(params[:page]).per(8)
+    end
+
+
+    @order_item = current_order.order_items.new
   end
 
   def about

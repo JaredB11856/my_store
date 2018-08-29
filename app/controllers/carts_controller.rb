@@ -58,6 +58,17 @@ class CartsController < ApplicationController
     redirect_to checkout_path
   end
 
+  def billing
+    @order_items = current_order.order_items
+    @shipping_addresses = ShippingAddress.all
+    @shipping_address = ShippingAddress.all[0]
+  end
+  def shipping
+    @order_items = current_order.order_items
+    @shipping_addresses = ShippingAddress.all
+    @shipping_address = ShippingAddress.all[0]
+  end
+
   
     # Use callbacks to share common setup or constraints between actions.
     def set_shipping_address

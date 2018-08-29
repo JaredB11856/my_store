@@ -26,7 +26,9 @@ end
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   #get 'cart', to: 'pages#cart'
-  get 'shipping', to: 'shipping_addresses#shipping'
+  get 'billing', to: 'carts#billing'
+  get 'shipping', to: 'carts#shipping'
+  #get 'shipping', to: 'shipping_addresses#shipping'
 
   get 'checkout', to: 'carts#checkout'
   get 'order_summary', to: 'carts#order_summary'
@@ -45,10 +47,14 @@ end
 
   #get'/userpage/invoice/:id', to: 'pages#user_page', as: 'userpage'
 
+  get 'admin', to: 'admins#admin'
+  get 'admin/inventory', to: 'admins#admin_inventory'
+  get 'admin/orders', to: 'admins#admin_orders'
+
   
 
 
-  #root to: 'pages#home'  
+  root to: 'pages#home'  
 
   
   get'/user_page/invoices', to: 'invoices#index', as: 'invoices'
@@ -64,6 +70,6 @@ end
   resources :products
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]  
-  root to: "products#index"
+  #root to: "products#index"
  
 end

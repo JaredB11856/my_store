@@ -1,14 +1,45 @@
-<h1>Homepage</h1>
+<!doctype html>
 
-<!-- Begin Category Nav -->  
-<%= render 'shared/category_nav' %>
-<!-- End Category Nav -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<div>
-  <div><%= link_to "Cart", cart_path %></div>
-  <div><%= link_to "User", user_page_path %></div>
-</div>
+    <title>Album example for Bootstrap</title>
 
-<hr>
+    <!-- Bootstrap core CSS 
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
-<%= render "shared/application_footer" %>
+    <!-- Custom styles for this template 
+    <link href="album.css" rel="stylesheet"> -->
+    <%= render 'shared/category_nav' %>
+
+  </head>  
+
+  <body>
+    <p id="notice"><%= notice %></p>
+    <div class="container-fluid">
+      <div class="row">         
+        <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-4">                    
+          <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row">
+                <% @products.each do |product| %>
+                  <%= render "product_row", product: product, order_item: @order_item %>
+                <% end %>                
+              </div>   
+                <%= paginate @products %>
+            </div>
+          </div>  
+       </main>
+     </div>
+   </div>
+  </body>
+
+  <footer class="text-muted">
+    <%= render 'shared/application_footer' %>
+  </footer>
+</html>
