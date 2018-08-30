@@ -58,15 +58,41 @@ class CartsController < ApplicationController
     redirect_to checkout_path
   end
 
-  def billing
+  def billing    
     @order_items = current_order.order_items
     @shipping_addresses = ShippingAddress.all
     @shipping_address = ShippingAddress.all[0]
+
+    
+    if proceed? == true
+        puts "hello"
+        puts params[:cc_name]
+        puts params[:cc_number]
+        puts params[:cc_expiration_mm]
+        puts params[:cc_expiration_yy]
+        puts params[:cc_cvv]
+        puts params[:firstName]
+        puts params[:lastName]
+        puts params[:address]
+        puts params[:address2]
+        puts params[:country]
+        puts params[:state]
+        puts params[:zip]
+        puts params[:same_address] == true
+        puts params[:save_info] == true
+        puts params[:commit]        
+        puts "hello"
+      return    
+    end
   end
   def shipping
     @order_items = current_order.order_items
     @shipping_addresses = ShippingAddress.all
     @shipping_address = ShippingAddress.all[0]
+  end
+
+  def proceed?    
+    params[:commit] == "Proceed"    
   end
 
   

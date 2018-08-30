@@ -28,6 +28,7 @@ end
   #get 'cart', to: 'pages#cart'
   get 'billing', to: 'carts#billing'
   get 'shipping', to: 'carts#shipping'
+  post 'shipping', to: 'carts#shipping'
   #get 'shipping', to: 'shipping_addresses#shipping'
 
   get 'checkout', to: 'carts#checkout'
