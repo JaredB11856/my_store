@@ -1,44 +1,19 @@
 <%= render 'shared/category_nav' %>
+<br>
 <h1>User Page</h1>
-<h4>Shipping Address</h4>
-<% @shipping_addresses.each do |shipping_address| %>
-  <%= link_to shipping_address.id, shipping_address_path(shipping_address) %>
-  <%= shipping_address.created_at.strftime("%m-%d-%Y") %>
-  <%#= link_to order_item.tracking , "#"  %>
-  <%#= order_item.total %>  
-  <br>
-<% end %>
-<br>Address 2 *default
-<h4>Billing Information</h4>
-<% @billing_informations.each do |billing_information| %>
-  <%= link_to billing_information.id, billing_information_path(billing_information) %>
-  <%= billing_information.created_at.strftime("%m-%d-%Y") %>
-  <%#= link_to order_item.tracking , "#"  %>
-  <%#= order_item.total %>  
-  <br>
-<% end %> 
-<h4>Order History</h4>
+<br>
 
-<p>The sum is:</p><%= @sum %> <br>
-Invoice | Date Created | Tracking | Total
+Order | Date Created | Tracking | Total | Status
 <br>
 
 <br>
-<% @invoices.each do |invoice| %>
-  <%= link_to invoice.id, invoice_path(invoice) %>
-  <%= invoice.created_at.strftime("%m-%d-%Y") %>
-  <%#= link_to order_item.tracking , "#"  %>
-  <%#= order_item.total %>  
+<% @orders.each do |order| %>  
+  <%= order.id %> |
+  <%= order.created_at.strftime("%m-%d-%Y") %> |
+  <%= order.total %> |
+  <%= order.order_status_id %> |
+  <br>
+  <%= order.inspect %>
   <br>
 <% end %>
 
-<h3>Shipping</h3>
-<br>
-Default shipping address:
-<select name="shipping_address[user_id]" id="shipping_address_user_id" class="btn"><option value="">Please select</option>   
-  <% @shipping_addresses.each do |shipping_address| %>              
-    <option value=<%"#{shipping_address}"%>>
-      <%= shipping_address.address_line_1 %>                  
-    </option>              
-  <% end %>  
-<hr>

@@ -43,10 +43,11 @@ class CartsController < ApplicationController
   def place_order    
     @order = current_order
     @order.update!(order_status_id: 'placed' )
+    @order.update!(total: "100" )
     assign_invoice_to_order_item
     session.delete(:order_id)
 
-    redirect_to order_confirmation_path, notice: "You're order has been placed."
+    redirect_to root_path, notice: "You're order has been placed."
   end
 
   def submit_shipping
