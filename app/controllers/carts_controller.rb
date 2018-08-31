@@ -47,7 +47,22 @@ class CartsController < ApplicationController
     assign_invoice_to_order_item
     session.delete(:order_id)
 
-    redirect_to root_path, notice: "You're order has been placed."
+    submit_payment   
+
+    #redirect_to root_path, notice: "You're order has been placed."
+  end
+
+  def submit_payment
+    
+    if @order.purchase
+      render :action => "success"
+      return
+    else
+      render :action => "failure"
+      return
+    end
+  else
+    puts "render new"
   end
 
   def submit_shipping

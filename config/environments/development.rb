@@ -53,13 +53,13 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test
-    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-      login: "jb_90210-facilitator_api1.hotmail.com",
-      password: "2CV8QR9LBEFDVWP4",
-      signiture: "A.XOJFbCOgWS3AGK6A0Equv15VTdAKWLzKA8r0ZD1XIxORXOFSm7TMXy"
+  
+config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :test
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    :login => "jb_90210-facilitator_api1.hotmail.com",
+    :password => "2CV8QR9LBEFDVWP4",
+    :signature => "A.XOJFbCOgWS3AGK6A0Equv15VTdAKWLzKA8r0ZD1XIxORXOFSm7TMXy"
   )
+  end
 end
-
-
