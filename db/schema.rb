@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180827220324) do
+ActiveRecord::Schema.define(version: 20180901001923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,35 @@ ActiveRecord::Schema.define(version: 20180827220324) do
     t.datetime "updated_at",                                            null: false
     t.string   "slug"
     t.index ["slug"], name: "index_products_on_slug", unique: true, using: :btree
+  end
+
+  create_table "purchase_orders", force: :cascade do |t|
+    t.string   "cc_first_name"
+    t.string   "cc_last_name"
+    t.string   "cc_month"
+    t.string   "cc_year"
+    t.string   "cc_brand"
+    t.string   "user_ip"
+    t.string   "billing_first_name"
+    t.string   "billing_last_name"
+    t.string   "billing_address_1"
+    t.string   "billing_address_2"
+    t.string   "billing_city"
+    t.string   "billing_state"
+    t.string   "billing_country"
+    t.string   "billing_zip"
+    t.string   "shippig_first_name"
+    t.string   "shipping_last_name"
+    t.string   "shipping_address_1"
+    t.string   "shipping_address_2"
+    t.string   "shipping_country"
+    t.string   "shipping_state"
+    t.string   "shipping_zip"
+    t.decimal  "subtotal",           precision: 12, scale: 3
+    t.decimal  "shipping",           precision: 12, scale: 3
+    t.decimal  "total",              precision: 12, scale: 3
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cc_first_name: MyString
+  cc_last_name: MyString
+  cc_month: MyString
+  cc_year: MyString
+  cc_brand: MyString
+  user_ip: MyString
+  billing_first_name: MyString
+  billing_last_name: MyString
+  billing_address_1: MyString
+  billing_address_2: MyString
+  billing_city: MyString
+  billing_state: MyString
+  billing_country: MyString
+  billing_zip: MyString
+  shippig_first_name: MyString
+  shipping_last_name: MyString
+  shipping_address_1: MyString
+  shipping_address_2: MyString
+  shipping_country: MyString
+  shipping_state: MyString
+  shipping_zip: MyString
+  subtotal: 9.99
+  shipping: 9.99
+  total: 9.99
+
+two:
+  cc_first_name: MyString
+  cc_last_name: MyString
+  cc_month: MyString
+  cc_year: MyString
+  cc_brand: MyString
+  user_ip: MyString
+  billing_first_name: MyString
+  billing_last_name: MyString
+  billing_address_1: MyString
+  billing_address_2: MyString
+  billing_city: MyString
+  billing_state: MyString
+  billing_country: MyString
+  billing_zip: MyString
+  shippig_first_name: MyString
+  shipping_last_name: MyString
+  shipping_address_1: MyString
+  shipping_address_2: MyString
+  shipping_country: MyString
+  shipping_state: MyString
+  shipping_zip: MyString
+  subtotal: 9.99
+  shipping: 9.99
+  total: 9.99
