@@ -10,7 +10,8 @@ class Order < ActiveRecord::Base
   
   
   def purchase
-    response = GATEWAY.purchase(1000, credit_card, purchase_options)
+    response = GATEWAY.purchase(3000, credit_card, purchase_options)
+    puts credit_card.inspect
     puts response.inspect
     
   end
@@ -58,9 +59,9 @@ private
   end
   
   def credit_card
-    @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
+    @credit_card = ActiveMerchant::Billing::CreditCard.new(
 
-      :first_name         => "Jared", 
+      :first_name         => "#{purchas_order.total}", 
       :last_name          => "Brown",
       :number             => "4032038747093601",
       :month              => "8",

@@ -27,6 +27,8 @@ end
   get 'contact', to: 'pages#contact'
   #get 'cart', to: 'pages#cart'
   get 'billing', to: 'carts#billing'
+  post 'billing', to: 'carts#billing'
+  get 'billing', to: 'carts#billing', as:'purchase_orders'
   get 'shipping', to: 'carts#shipping'
   post 'shipping', to: 'carts#shipping'
   #get 'shipping', to: 'shipping_addresses#shipping'

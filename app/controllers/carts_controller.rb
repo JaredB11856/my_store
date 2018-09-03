@@ -79,6 +79,7 @@ class CartsController < ApplicationController
     @shipping_addresses = ShippingAddress.all
     @shipping_address = ShippingAddress.all[0]
 
+    @purchase_order = PurchaseOrder.new()
     
     if proceed? == true
         puts "hello"
