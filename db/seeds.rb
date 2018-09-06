@@ -6,7 +6,14 @@ Product.delete_all
 User.create!(
     email: "test@test.com",
     password: "123456",
-    name: "test"
+    name: "test",
+    role: "user"
+  )
+User.create!(
+    email: "admin@test.com",
+    password: "123456",
+    name: "admin",
+    role: "admin"
   )
 puts "test user created"
 

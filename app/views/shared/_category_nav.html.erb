@@ -14,12 +14,12 @@
       </li>  
       <li class="nav-item active">
         <a class="nav-link" <%= link_to "Admin", admin_path %> <span class="sr-only">(current)</span></a>
-      </li>       
-      
-      
+      </li>   
+      <li class="nav-item active">        
+        <a class="nav-link" <%= login_helper 'nav-link'  %> <span class="sr-only">(current)</span></a>
+      </li>      
     </ul>
     <form class="form-inline my-2 my-md-0">
-
       <%= form_tag products_path, method: :get do %>   
       <div class="form-control" >         
         <%= text_field_tag :query, params[:query], class: 'form-control'%>
