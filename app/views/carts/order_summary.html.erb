@@ -34,7 +34,7 @@
                   <div class="summary-item"><span class="text">Shipping</span><span class="price">$<%= shipping = 10 %> </span></div>
                   <div class="summary-item"><span class="text">Total</span><span class="price">$<%= subtotal + shipping %></span></div>
                   <div class="form-group">
-                    <%= button_to 'Place Order', button_path, method: :put, class: 'btn btn-primary btn-block'%>
+                    <%= button_to 'Place Order', button_path, method: :put, class: 'btn btn-primary btn-block'%>                    
                   </div>  
                 </div>
               </div>
@@ -42,6 +42,9 @@
           </div>
         </div>        
       </div>
+      <%= params.inspect %>
+      <br>
+      <%= params[:format] %>
     </section>
   </main>
 </body>

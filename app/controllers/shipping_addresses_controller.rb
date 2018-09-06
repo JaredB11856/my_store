@@ -38,6 +38,7 @@ class ShippingAddressesController < ApplicationController
 
     if @shipping_address.save
       redirect_to @shipping_address, notice: 'Shipping address was successfully created.'
+      return
     else
       render :new
     end

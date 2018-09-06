@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :purchase_orders
   resources :billing_informations
   resources :shipping_addresses do
   collection {
@@ -19,16 +20,19 @@ end
     end
   end
 
-  #get '/button', to: 'carts#place_order', as: 'button'
+  get '/button3', to: 'carts#place_order', as: 'button3'
+  #put '/button4', to: 'purchase_orders#update', as: 'button4'
+  put 'purchase_orders', to: 'purchase_orders#update'
+
 
   get 'products/:id', to: 'products#show', as: 'product_show'
 
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   #get 'cart', to: 'pages#cart'
-  get 'billing', to: 'carts#billing'
-  post 'billing', to: 'carts#billing'
-  get 'billing', to: 'carts#billing', as:'purchase_orders'
+  get 'billing', to: 'purchase_orders#billing'
+  #post 'billing', to: 'carts#billing'
+  #get 'billing', to: 'carts#billing', as:'purchase_orders'
   get 'shipping', to: 'carts#shipping'
   post 'shipping', to: 'carts#shipping'
   #get 'shipping', to: 'shipping_addresses#shipping'

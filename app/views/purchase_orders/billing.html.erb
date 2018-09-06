@@ -28,7 +28,7 @@
     <!-- Custom styles for this template -->
     <!--<link href="form-validation.css" rel="stylesheet"> -->
   </head>
-<form action="/shipping" method="post" class="needs-validation" mnovalidate>
+  <form action="/shipping" method="post" class="needs-validation" mnovalidate>
     <body class="bg-light">
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
@@ -43,64 +43,82 @@
           </div>          
         </div>
 
-        <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Payment</h4>       
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc_name">Name on card</label>
-                <input type="text" class="form-control" id="cc_name" placeholder="" disabled value="John Smith">
-                <%=  %>
-                <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc_number">Credit card number</label>
-                <input type="text" class="form-control" id="cc_number" placeholder="" disabled value="1111222233334444">
-                <div class="invalid-feedback">
-                  Credit card number is required
-                </div>
+
+          <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Payment</h4>       
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="cc_name">Name on card</label>
+              <%= f.text_field :cc_first_name, class:"form-control", required:false, value: "John" %>
+              <small class="text-muted">Full name as displayed on card</small>
+              <div class="invalid-feedback">
+                Name on card is required
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc_expiration_mm">Expiration MM</label>
-                <input type="text" class="form-control" id="cc_expiration_mm" placeholder="" disabled value="8">
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc_expiration_yy">Expiration YY</label>
-                <input type="text" class="form-control" id="cc_expiration_yy" placeholder="" disabled value="20">
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc_cvv">CVC</label>
-                <input type="text" class="form-control" id="cc_cvv" placeholder="" disabled value="123">
-                <div class="invalid-feedback">
-                  Security code required
-                </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc_name">Name on card</label>
+              <%= f.text_field :cc_last_name, class:"form-control", required:false, value: "Smith" %>
+              <small class="text-muted">Full name as displayed on card</small>
+              <div class="invalid-feedback">
+                Name on card is required
               </div>
             </div>
-          <hr class="mb-4">
-          <h4 class="mb-3">Billing address</h4>
+            <div class="col-md-6 mb-3">
+              <label for="cc_number">Credit card number</label>
+              <%= f.text_field :card_number, class:"form-control", required:false, value: "4032038747093601" %>
+              <div class="invalid-feedback">
+                Credit card number is required
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="cc_expiration_mm">Expiration MM</label>
+              <%= f.text_field :cc_month, class:"form-control", required:false, value: "8" %>
+              <div class="invalid-feedback">
+                Expiration date required
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc_expiration_yy">Expiration YY</label>
+              <%= f.text_field :cc_year, class:"form-control", required:false, value: "2023" %>
+              <div class="invalid-feedback">
+                Expiration date required
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc_cvv">CVC</label>
+              <%= f.text_field :card_verification, class:"form-control", required:false, value: "123" %>
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc_cvv">Card Type</label>
+              <!-- TODO style-->
+              <%#= f.select :cc_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+              <div class="invalid-feedback">
+                Security code required
+              </div>
+            </div>
+          </div>
+
+
           
+          <hr class="mb-4">
+          <h4 class="mb-3">Billing Address</h4>          
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>                                
-                <%= f.text_field :billing_first_name, class:"form-control", required:true %>
+                <%= f.text_field :billing_first_name, class:"form-control", required:false, value: "Jared"%>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
-
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
-                <%= f.text_field :billing_last_name, class:"form-control", required:true %>
+                <%= f.text_field :billing_last_name, class:"form-control", required:false, value: "Brown" %>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -108,7 +126,7 @@
             </div>
             <div class="mb-3">
               <label for="address">Address</label>
-              <%= f.text_field :billing_address_1, class:"form-control", required:true %>
+              <%= f.text_field :billing_address_1, class:"form-control", required:false %>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -120,8 +138,7 @@
             <div class="row">
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
-                <select class="custom-select d-block w-100" name="country" id="country" >
-                  <%=%>
+                <select class="custom-select d-block w-100" name="country" id="country" >                  
                   <option value="">Choose...</option>
                   <option>United States</option>
                 </select>
@@ -141,7 +158,7 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <%= f.text_field :billing_zip, class:"form-control", required:true %>
+                <%= f.text_field :billing_zip, class:"form-control", required:false %>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
@@ -151,38 +168,73 @@
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input"  name="same_address" id="same_address">
               <label class="custom-control-label" for="same_address">Shipping address is the same as my billing address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input"  name="save_info" id="save_info">
-              <label class="custom-control-label" for="save_info">Save this information for next time</label>
-            </div>
+            </div>            
             <hr>
 
+            <h4 class="mb-3">Shipping Address</h4>          
+            <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">Total</label>                                
-                <!-- <%#= f.number_field :total, class:"form-control", :value => @order_items.sum(&:total_price) %> -->
+                <label for="firstName">First name</label>                                
+                <%= f.text_field :shippig_first_name, class:"form-control", required:false %>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
-                <%= @purchase_order.inspect %>
               </div>
-
-            
-            <% @purchase_order.update!(total: "#{@order_items.sum(&:total_price)}" )%>
-            <%= @purchase_order.total %>
-            <hr class="mb-4">               
-     
-
-            <input type="submit" name="commit" value="Update Purchase order" data-disable-with="Update Purchase order">
-            <input type="hidden" name="_method" value="put">
-          </form>
-        </div>
-      </div>
-
-
-        <div class="actions">
-    
-  </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <%= f.text_field :shipping_last_name, class:"form-control", required:false %>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <%= f.text_field :shipping_address_1, class:"form-control", required:false %>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <%= f.text_field :shipping_address_2, class:"form-control"%>
+            </div>
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select class="custom-select d-block w-100" name="country" id="country" >                  
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <select class="custom-select d-block w-100" name="state" id="state" >
+                  <option value="">Choose...</option>
+                  <option>California</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <%= f.text_field :shipping_zip, class:"form-control", required:false %>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">                     
+            <%= f.submit "Checkout", class:"btn btn-primary btn-lg btn-block" %>         
+         </div>
+       </div>
+     </div>    
+    </div>
+  </form>
 <% end %>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -198,7 +250,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
      Placed at the end of the document so the pages load faster 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
    <!-- <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
