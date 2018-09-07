@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180907013636) do
+ActiveRecord::Schema.define(version: 20180907180631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,14 +135,16 @@ ActiveRecord::Schema.define(version: 20180907013636) do
     t.string   "shipping_country"
     t.string   "shipping_state"
     t.string   "shipping_zip"
-    t.decimal  "subtotal",            precision: 12, scale: 3
-    t.decimal  "shipping",            precision: 12, scale: 3
-    t.decimal  "total",               precision: 12, scale: 3
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.decimal  "subtotal",                 precision: 12, scale: 3
+    t.decimal  "shipping",                 precision: 12, scale: 3
+    t.decimal  "total",                    precision: 12, scale: 3
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "shipping_first_name"
     t.string   "shipping_option"
     t.string   "card_type"
+    t.string   "tracking"
+    t.integer  "purchase_order_status_id"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

@@ -16,15 +16,11 @@
       <tr>
         <td><%= link_to "#{purchase_order.id}", purchase_order %></td>
         <td><%= purchase_order.created_at.strftime("%m-%d-%Y") %></td>        
-        <td><%= link_to "Tracking", purchase_order %></td>
+        <td><%= link_to "#{purchase_order.tracking}", purchase_order %></td>
         <td><%= link_to "#{purchase_order.total}", purchase_order %></td>
-        <td><%= link_to "#{purchase_order}", purchase_order %></td>
+        <td><%= link_to "#{purchase_order.purchase_order_status_id}", purchase_order %></td>
         <td><%= link_to 'Edit', edit_purchase_order_path(purchase_order) %></td>        
       </tr>        
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to 'New Product', new_product_path %>
-<br>

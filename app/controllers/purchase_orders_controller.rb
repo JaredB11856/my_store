@@ -39,6 +39,7 @@ class PurchaseOrdersController < ApplicationController
       #TODO Move this to model
         @order_items = current_order.order_items       
         @purchase_order.update!(total: "#{@order_items.sum(&:total_price)}")
+        @purchase_order.update!(purchase_order_status_id: :processed)
         @purchase_order.update(purchase_order_params)
       if @purchase_order.purchase        
         session.delete(:order_id)    
@@ -67,7 +68,9 @@ class PurchaseOrdersController < ApplicationController
 
   def billing    
     @order_items = current_order.order_items
-    @purchase_order = PurchaseOrder.create   
+    @purchase_order = PurchaseOrder.create  
+    @purchase_order.update!(purchase_order_status_id: :cart)
+    
     #TODO
     # If the there is a purchase_order already completed or status_id.placed then crate a new one otherwise use the old one.
     #if purchase_order.status_id.placed 
@@ -105,7 +108,9 @@ class PurchaseOrdersController < ApplicationController
                                      :shipping_zip,
                                      :subtotal,
                                      :shipping,
-                                     :total
+                                     :total,
+                                     :tracking,
+                                     :purchase_order_status_id
                                      )
     end
 end

@@ -1,4 +1,5 @@
 class PurchaseOrder < ApplicationRecord
+  enum purchase_order_status_id: { cart: 0, processed: 1 }
    attr_accessor :card_number, :card_verification   
 
    def purchase    
