@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= @purchase_order.inspect %>
+
 <p>
   <strong>CC First Name:</strong>
   <%= @purchase_order.cc_first_name %>
@@ -21,8 +23,8 @@
 </p>
 
 <p>
-  <strong>CC Brand:</strong>
-  <%= @purchase_order.cc_brand %>
+  <strong>CC Type:</strong>
+  <%= @purchase_order.card_type %>
 </p>
 
 <p>
@@ -46,13 +48,13 @@
 </p>
 
 <p>
-  <strong>Billing City:</strong>
-  <%= @purchase_order.billing_city %>
+  <strong>Billing State:</strong>
+  <%= @purchase_order.billing_state %>
 </p>
 
 <p>
-  <strong>Billing State:</strong>
-  <%= @purchase_order.billing_state %>
+  <strong>Billing Country:</strong>
+  <%= @purchase_order.billing_country %>
 </p>
 
 <p>
@@ -61,8 +63,18 @@
 </p>
 
 <p>
+  <strong>Shipping Option:</strong>
+  <%= @purchase_order.shipping_option %>
+</p>
+
+<p>
   <strong>Shipping First Name:</strong>
-  <%= @purchase_order.shippig_first_name %>
+  <%= @purchase_order.shipping_first_name %>
+</p>
+
+<p>
+  <strong>Shipping Last Name:</strong>
+  <%= @purchase_order.shipping_last_name %>
 </p>
 
 <p>
@@ -81,6 +93,11 @@
 </p>
 
 <p>
+  <strong>Shipping State:</strong>
+  <%= @purchase_order.shipping_state %>
+</p>
+
+<p>
   <strong>Shipping Zip:</strong>
   <%= @purchase_order.shipping_zip %>
 </p>
@@ -94,8 +111,6 @@
   <strong>Total:</strong>
   <%= @purchase_order.total %>
 </p>
-
-
 
 <%= link_to 'Edit', edit_purchase_order_path(@purchase_order) %> |
 <%= link_to 'Back', purchase_orders_path %>

@@ -31,21 +31,21 @@
   <form action="/shipping" method="post" class="needs-validation" mnovalidate>
     <body class="bg-light">
       <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
+        <div class="col-md-3 order-md-2 mb-4">
           <div class="col-md-12 col-lg-4">
             <div class="summary">
               <h3>Summary</h3>
               <div class="summary-item"><span class="text">Subtotal</span><span class="price">$<%= subtotal = @order_items.sum(&:total_price) %></span></div>
               <div class="summary-item"><span class="text">Discount</span><span class="price">$<%= discount = 0 %></span></div>
               <div class="summary-item"><span class="text">Shipping</span><span class="price">$<%= shipping = 10 %> </span></div>
-              <div class="summary-item"><span class="text">Total</span><span class="price">$<%= subtotal + shipping %></span></div>                  
+              <div class="summary-item"><span class="text">Total</span><span class="price">$<%= subtotal + shipping %></span></div> 
             </div>
           </div>          
         </div>
 
 
-          <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Payment</h4>       
+        <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Payment</h4>       
           <div class="row">
             <div class="col-md-3 mb-3">
               <label for="cc_name">Name on card</label>
@@ -95,34 +95,32 @@
               </div>
             </div>
             <div class="col-md-3 mb-3">
-              <label for="cc_cvv">Card Type</label>
+              <label for="card_type">Card Type</label>
               <!-- TODO style-->
-              <%#= f.select :cc_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+              <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {}, { :class => "custom-select" } %>
               <div class="invalid-feedback">
                 Security code required
               </div>
             </div>
           </div>
-
-
-          
+        
           <hr class="mb-4">
           <h4 class="mb-3">Billing Address</h4>          
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>                                
-                <%= f.text_field :billing_first_name, class:"form-control", required:false, value: "Jared"%>
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">First name</label>                                
+              <%= f.text_field :billing_first_name, class:"form-control", required:false, value: "Jared"%>
+              <div class="invalid-feedback">
+                Valid first name is required.
               </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <%= f.text_field :billing_last_name, class:"form-control", required:false, value: "Brown" %>
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Last name</label>
+              <%= f.text_field :billing_last_name, class:"form-control", required:false, value: "Brown" %>
+              <div class="invalid-feedback">
+                Valid last name is required.
               </div>
+            </div>
             </div>
             <div class="mb-3">
               <label for="address">Address</label>
@@ -137,21 +135,15 @@
             </div>
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
-                <select class="custom-select d-block w-100" name="country" id="country" >                  
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                </select>
+                <label for="billing_country" >Country</label>
+                 <%= f.select :billing_country, [["United States", "united_states"]], {}, { :class => "custom-select" } %>
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
-                <select class="custom-select d-block w-100" name="state" id="state" >
-                  <option value="">Choose...</option>
-                  <option>California</option>
-                </select>
+                <%= f.select :billing_state, [["Idaho", "idaho"]], {}, { :class => "custom-select" } %> 
                 <div class="invalid-feedback">
                   Please provide a valid state.
                 </div>
@@ -173,21 +165,29 @@
 
             <h4 class="mb-3">Shipping Address</h4>          
             <div class="row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="firstName">First name</label>                                
-                <%= f.text_field :shippig_first_name, class:"form-control", required:false %>
+                <%= f.text_field :shipping_first_name, class:"form-control", required:false %>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="lastName">Last name</label>
                 <%= f.text_field :shipping_last_name, class:"form-control", required:false %>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
               </div>
+              <div class="col-md-3 mb-3">
+                <label for="shipping_option">Shipping</label>                  
+                <%= f.select :shipping_option, [["One Day", "one_day"], ["Two Day", "two_day"], ["Three Day", "three_day"], ["Economy", "economy"]], {}, { :class => "custom-select" }  %>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
             </div>
+            
             <div class="mb-3">
               <label for="address">Address</label>
               <%= f.text_field :shipping_address_1, class:"form-control", required:false %>
@@ -196,28 +196,22 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <label for="shipping_address_2">Address 2 <span class="text-muted">(Optional)</span></label>
               <%= f.text_field :shipping_address_2, class:"form-control"%>
             </div>
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
-                <select class="custom-select d-block w-100" name="country" id="country" >                  
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                </select>
+                <label for="shipping_country" >Country</label>
+                 <%= f.select :shipping_country, [["United States", "united_states"]], {}, { :class => "custom-select" } %>          
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <select class="custom-select d-block w-100" name="state" id="state" >
-                  <option value="">Choose...</option>
-                  <option>California</option>
-                </select>
+                <label for="shipping_state" >State</label>
+                 <%= f.select :shipping_state, [["Idaho", "idaho"]], {}, { :class => "custom-select" } %>          
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Please select a valid country.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
@@ -230,22 +224,21 @@
             </div>
             <hr class="mb-4">                     
             <%= f.submit "Checkout", class:"btn btn-primary btn-lg btn-block" %>         
-         </div>
+         </div>       
        </div>
      </div>    
     </div>
   </form>
 <% end %>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
-    </div>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; 2017-2018 Company Name</p>
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">Privacy</a></li>
+    <li class="list-inline-item"><a href="#">Terms</a></li>
+    <li class="list-inline-item"><a href="#">Support</a></li>
+  </ul>
+</footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -281,14 +274,8 @@
     </script>
   
   </body>
-</html>
+</html>  
 
-             
-          
-      </div>
-    </section>   
-  </main>
-</body>
 <!--
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180901001923) do
+ActiveRecord::Schema.define(version: 20180907013636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 20180901001923) do
     t.string   "cc_last_name"
     t.string   "cc_month"
     t.string   "cc_year"
-    t.string   "cc_brand"
     t.string   "user_ip"
     t.string   "billing_first_name"
     t.string   "billing_last_name"
@@ -130,18 +129,20 @@ ActiveRecord::Schema.define(version: 20180901001923) do
     t.string   "billing_state"
     t.string   "billing_country"
     t.string   "billing_zip"
-    t.string   "shippig_first_name"
     t.string   "shipping_last_name"
     t.string   "shipping_address_1"
     t.string   "shipping_address_2"
     t.string   "shipping_country"
     t.string   "shipping_state"
     t.string   "shipping_zip"
-    t.decimal  "subtotal",           precision: 12, scale: 3
-    t.decimal  "shipping",           precision: 12, scale: 3
-    t.decimal  "total",              precision: 12, scale: 3
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.decimal  "subtotal",            precision: 12, scale: 3
+    t.decimal  "shipping",            precision: 12, scale: 3
+    t.decimal  "total",               precision: 12, scale: 3
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "shipping_first_name"
+    t.string   "shipping_option"
+    t.string   "card_type"
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
