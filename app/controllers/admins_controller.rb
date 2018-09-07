@@ -9,6 +9,6 @@ class AdminsController < ApplicationController
   end
 
   def admin_orders
-   @orders = OrderItem.all
+   @purchase_orders = PurchaseOrder.all
   end
 end
