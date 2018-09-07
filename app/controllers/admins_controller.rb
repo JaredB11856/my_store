@@ -11,4 +11,7 @@ class AdminsController < ApplicationController
   def admin_orders
    @purchase_orders = PurchaseOrder.all
   end
+
+  def contact_method
+  end
 end

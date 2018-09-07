@@ -1,0 +1,82 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :active %>
+    <%= f.text_field :active %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+
+  <div class="field">
+    <%= f.label :filter_primary %>
+    <%= f.text_field :filter_primary %>
+  </div>
+
+  <div class="field">
+    <%= f.label :filter_secondary %>
+    <%= f.text_field :filter_secondary %>
+  </div>
+
+  <div class="field">
+    <%= f.label :details %>
+    <%= f.text_field :details %>
+  </div>
+
+  <div class="field">
+    <%= f.label :main_image %>
+    <%= f.text_field :main_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_id %>
+    <%= f.text_field :product_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :created_at %>
+    <%= f.text_field :created_at %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

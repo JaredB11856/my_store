@@ -1,16 +1,18 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_status]
-  access all: [:show], user: {except: [:destroy, :new, :Create, :update, :edit]}, admin: :all
+  access all: [:show], user: {except: [:destroy, :new, :create, :update, :edit]}, admin: :all
 
   def index
     if params[:query].present?
       @products = Product.search(params[:query]).page(params[:page]).per(8)
     else
       @products = Product.all.page(params[:page]).per(8)
-    end
-
+    end    
 
     @order_item = current_order.order_items.new
+  end
+
+  def edit
   end
 
   def show
