@@ -27,7 +27,8 @@ Product.create!(
     name: "MonitorX",
     id: 1,
     active: true,
-    product_id: "product_1"
+    product_id: "product_1",
+    quantity: "10"
   )    
 
 Product.create!(
@@ -40,7 +41,8 @@ Product.create!(
     name: "MonitorX",
     id: 2,
     active: true,
-    product_id: "product_2"
+    product_id: "product_2",
+    quantity: "10"
   )    
 
 Product.create!(
@@ -53,7 +55,8 @@ Product.create!(
     name: "MonitorX",
     id: 3,
     active: true,
-    product_id: "product_3"
+    product_id: "product_3",
+    quantity: "10"
   )  
 
 Product.create!(
@@ -66,7 +69,8 @@ Product.create!(
     name: "Core i7X",
     id: 4,
     active: true,
-    product_id: "product_4"
+    product_id: "product_4",
+    quantity: "10"
   )   
 
 Product.create!(
@@ -79,7 +83,8 @@ Product.create!(
     name: "Core i7X",
     id: 5,
     active: true,
-    product_id: "product_5"
+    product_id: "product_5",
+    quantity: "10"
   )   
 
 Product.create!(
@@ -92,7 +97,8 @@ Product.create!(
     name: "Core i7X",
     id: 6,
     active: true,
-    product_id: "product_6"
+    product_id: "product_6",
+    quantity: "10"
   )  
 
 Product.create!(
@@ -105,7 +111,8 @@ Product.create!(
     name: "Logitech 7X",
     id: 7,
     active: true,
-    product_id: "product_7"
+    product_id: "product_7",
+    quantity: "10"
   )  
 
 Product.create!(
@@ -118,7 +125,8 @@ Product.create!(
     name: "Logitech 7X",
     id: 8,
     active: true,
-    product_id: "product_8"
+    product_id: "product_8",
+    quantity: "10"
   )  
 
 Product.create!(
@@ -131,7 +139,8 @@ Product.create!(
     name: "Logitech 7X",
     id: 9,
     active: true,
-    product_id: "product_9"
+    product_id: "product_9",
+    quantity: "10"
   )  
 
 puts "3 products created"

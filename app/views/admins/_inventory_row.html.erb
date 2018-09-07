@@ -25,14 +25,18 @@
       <tr>
         <td><%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %></td>  
         <td><%= product.product_id %></td> 
+        <td><%= f.text_field :name, :size => "8" %></td>  
+        <td><%= f.text_field :brand, :size => "8" %></td>  
+        <td><%= f.text_field :category, :size => "6" %></td>   
+        <td><%= f.text_field :quantity, :size => "3" %></td>
         <td><%= product.status %></td> 
-        <td>$<%= f.text_field :price %></td>   
+        <td>$<%= f.text_field :price, :size => "6" %></td>   
         <td><%= radio_button(:f, :contact_method, "inactive")%>
           Active
           <br>
         <%= radio_button(:f, :contact_method, "active")%>
       Inavtive</td>                    
-        <td><%= f.submit %></td>
+        <td><%= f.submit "Update"%></td>
       </tr>
       
     <% end %>

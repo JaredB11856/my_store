@@ -23,6 +23,14 @@ class ProductsController < ApplicationController
     #@seo_keywords = @product.
   end
 
+  def update
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Product information was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
    private
     # Use callbacks to share common setup or constraints between actions.
     def set_product           
@@ -31,7 +39,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:category, :brand, :primary, :secondary, :details)
+      params.require(:product).permit(:category, :brand, :primary, :secondary, :details, :quantity)
     end
 
 end
