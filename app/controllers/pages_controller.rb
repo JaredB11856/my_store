@@ -32,6 +32,7 @@ class PagesController < ApplicationController
     @shipping_addresses = ShippingAddress.all
     @billing_informations = BillingInformation.all
     @orders = Order.all
+    @purchase_orders = PurchaseOrder.all
   end
 
   def new_shipping_address
