@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
     @page_title = ("My Store| " + @product.product_id)
     #TODO
     #@seo_keywords = @product.
+    @order_item = current_order.order_items.new
   end
 
   def update

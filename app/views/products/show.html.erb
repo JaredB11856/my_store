@@ -1,10 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @product.main_image  %>
+<div class="col-md-3">               
+  <div class="card mb-3 box-shadow">
+    <% product = @product %>
+    <%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %>
+    <div class="col-xs-8">
+      <h4><%= product.name %></small></h4>
+    </div>
+    <div class="col-xs-4">
+
+      <%= form_for @order_item, remote: true do |f| %>
+      <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency product.price %></span></h4>
+        <div class="input-group">
+          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          <div class="input-group-btn">
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+  <%= form_for(@product) do |f| %>
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this @product from being saved:</h2>
+
+        <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %> 
 
 <p>
-  <strong>Category:</strong>
-  <%= @product.category %>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
 </p>
 
 <p>
@@ -37,7 +76,5 @@
   <%= @product.product_id %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) if logged_in?(:admin) %> |
-<%= link_to 'Back', products_path %>
 
-
+<% end %>
