@@ -143,52 +143,5 @@ Product.create!(
     quantity: "10"
   )  
 
-puts "3 products created"
-
-3.times do |invoice|
-  User.last.invoices.create!(
-      name: "Invoice #{invoice + 1 }",
-      tracking: "1Z9Y97F0YN0112988#{invoice}",
-      total: "1#{invoice}0"
-
-    )
-end
-puts "3 Invoices created"  
-
-3.times do |address|
-  ShippingAddress.create!(
-      name: "Jared Brown", 
-      address_line_1:"1#{address}000 W 1800 N", 
-      address_line_2: "Po Box #{address}23", 
-      city: "Somewhere", 
-      state: "ID", 
-      zip_code: "83440",
-      invoice_id: Invoice.last.id,      
-   )
-  ShippingAddress.last.update!(shipping_address_id: "#{ShippingAddress.last.id}") 
-end
-puts "3 Shipping addresses created" 
-
-3.times do |address|
-  BillingInformation.create!(
-      name: "Jared Brown", 
-      address_line_1:"1#{address}000 W 1800 N", 
-      address_line_2: "Po Box #{address}23", 
-      city: "Somewhere", 
-      state: "ID", 
-      zip_code: "83440",
-      cc_type: "Visa",
-      cc_last_four: "1234",
-      invoice_id: Invoice.last.id
-   )
-end
-puts "3 Billing informations created" 
-
-
-OrderStatus.delete_all
-OrderStatus.create! id: 1, name: "In Progress"
-OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Cancelled"
-puts '3 Products created'
+puts '9 Products created'
 

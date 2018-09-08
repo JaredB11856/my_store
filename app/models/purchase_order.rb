@@ -1,8 +1,8 @@
 class PurchaseOrder < ApplicationRecord
   enum purchase_order_status_id: { cart: 0, processed: 1 }
-   attr_accessor :card_number, :card_verification   
+ attr_accessor :card_number, :card_verification   
 
-   def purchase    
+  def purchase    
     response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)    
     return response
   end
@@ -43,7 +43,7 @@ class PurchaseOrder < ApplicationRecord
       :month              => cc_month,
       :year               => cc_year,
       :verification_value => card_verification,
-      :brand              => "visa"
+      :brand              => card_type
     )
   end
 end

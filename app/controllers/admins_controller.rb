@@ -1,7 +1,6 @@
 class AdminsController < ApplicationController  
 
   def admin
-
   end
 
   def admin_inventory

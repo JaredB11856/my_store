@@ -1,44 +1,37 @@
 <p id="notice"><%= notice %></p>
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>   
 
-
-  <%= form_for(product) do |f| %>
-    <% if product.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-        <ul>
-        <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>   
-
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-    
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %></td>  
-        <td><%= product.product_id %></td> 
-        <td><%= f.text_field :name, :size => "8" %></td>  
-        <td><%= f.text_field :brand, :size => "8" %></td>  
-        <td><%= f.text_field :category, :size => "6" %></td>   
-        <td><%= f.text_field :quantity, :size => "3" %></td>
-        <td><%= product.status %></td> 
-        <td>$<%= f.text_field :price, :size => "6" %></td>   
-        <td><%= radio_button(:f, :contact_method, "inactive")%>
-          Active
-          <br>
-        <%= radio_button(:f, :contact_method, "active")%>
-      Inavtive</td>                    
-        <td><%= f.submit "Update"%></td>
+        <th colspan="3"></th>
       </tr>
-      
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tr>
+      <td><%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %></td>  
+      <td><%= product.product_id %></td> 
+      <td><%= f.text_field :name, :size => "8" %></td>  
+      <td><%= f.text_field :brand, :size => "8" %></td>  
+      <td><%= f.text_field :category, :size => "6" %></td>   
+      <td><%= f.text_field :quantity, :size => "3" %></td>
+      <td><%= product.status %></td> 
+      <td>$<%= f.text_field :price, :size => "6" %></td>   
+      <td><%= radio_button(:f, :contact_method, "inactive")%>
+        Active
+        <br>
+      <%= radio_button(:f, :contact_method, "active")%>
+        Inavtive</td>                    
+      <td><%= f.submit "Update"%></td>
+    </tr>
+  </table>
+<% end %>

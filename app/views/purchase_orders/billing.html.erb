@@ -2,7 +2,6 @@
   <% if @purchase_order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@purchase_order.errors.count, "error") %> prohibited this @purchase_order from being saved:</h2>
-
       <ul>
       <% @purchase_order.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,8 +9,6 @@
       </ul>
     </div>
   <% end %>
-
-
 
   <head>
     <meta charset="utf-8">
@@ -42,7 +39,6 @@
             </div>
           </div>          
         </div>
-
 
         <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Payment</h4>       

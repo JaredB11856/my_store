@@ -1,8 +1,4 @@
-class User < ApplicationRecord
-  has_many :invoices
-  has_many :shipping_addresses
-  accepts_nested_attributes_for :shipping_addresses, 
-                                reject_if: lambda { |attrs| attrs['name'].blank? }
+class User < ApplicationRecord 
   
   ############################################################################################
   ## PeterGate Roles                                                                        ##
