@@ -28,10 +28,11 @@
   <form action="/shipping" method="post" class="needs-validation" mnovalidate>
     <body class="bg-light">
       <div class="row">
-        <div class="col-md-3 order-md-2 mb-4">
-          <div class="col-md-12 col-lg-4">
-            <div class="summary">
+        <div class="col-md-2 order-md-2 mb-4">
+          <div class="col-md-12 col-lg-4 billing-summary">
+            <div>
               <h3>Summary</h3>
+              <!-- TODO -->
               <div class="summary-item"><span class="text">Subtotal</span><span class="price">$<%= subtotal = @order_items.sum(&:total_price) %></span></div>
               <div class="summary-item"><span class="text">Discount</span><span class="price">$<%= discount = 0 %></span></div>
               <div class="summary-item"><span class="text">Shipping</span><span class="price">$<%= shipping = 10 %> </span></div>
@@ -40,7 +41,7 @@
           </div>          
         </div>
 
-        <div class="col-md-8 order-md-1">
+        <div class="col-md-9 order-md-1 payment">
         <h4 class="mb-3">Payment</h4>       
           <div class="row">
             <div class="col-md-3 mb-3">
@@ -151,13 +152,12 @@
                   Zip code required.
                 </div>
               </div>
-            </div>
-            <hr class="mb-4">
+            </div>           
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input"  name="same_address" id="same_address">
               <label class="custom-control-label" for="same_address">Shipping address is the same as my billing address</label>
             </div>            
-            <hr>
+            <hr class="mb-4">
 
             <h4 class="mb-3">Shipping Address</h4>          
             <div class="row">
@@ -237,14 +237,14 @@
 </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-     Placed at the end of the document so the pages load faster 
-  <!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-   <!-- <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    ================================================== 
+     Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <!--<script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script>
-    <script> -->
+    <script src="../../../../assets/js/vendor/holder.min.js"></script> -->
+    <script> 
 
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
@@ -272,9 +272,9 @@
   </body>
 </html>  
 
-<!--
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
--->
+
 </body>
 </html>

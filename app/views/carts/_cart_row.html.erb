@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8" class="info">
     <div class="info">
       <div class="row">
         <div class="col-md-5 product-name">

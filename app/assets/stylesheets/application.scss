@@ -1,6 +1,41 @@
 @import "bootstrap";
 
 /*
+ * Carts
+ */
+
+.product-name {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.info {
+  margin-top: 50px;  
+  text-align: center;
+}
+
+.billing-summary {
+  position: absolute;
+  top: 90%;
+}
+
+.payment {
+  padding-left: 50px;
+}
+
+/*
+ * Home
+ */
+
+.form-control {
+  
+}
+
+
+
+
+/*
  * Globals
  */
 
