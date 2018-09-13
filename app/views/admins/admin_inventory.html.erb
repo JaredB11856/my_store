@@ -1,5 +1,6 @@
+
 <!doctype html>
-<h1 color="black">Inventory</h1>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -14,25 +15,62 @@
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template 
-    <link href="album.css" rel="stylesheet"> -->    
+    <link href="album.css" rel="stylesheet"> --> 
+
 
   </head>  
 
   <body>
-    <div class="container-fluid">
-      <div class="row">         
-        <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-4">                    
-          <div class="album py-5 bg-light">
-            <div class="container">
-              <div class="row">   
-                <% @products.each do |product| %>
-                  <%= render "inventory_row", product: product, order_item: @order_item %>
-                <% end %>                
-              </div>                   
-            </div>
-          </div>  
-       </main>
-     </div>
+    <%= render 'shared/category_nav' %>   
+    <div class="container-fluid">          
+      <div class="container">
+        <div class="row"> 
+        <p id="notice"><%= notice %></p>
+        <% @products.each do |product| %>
+          <%= form_for(product) do |f| %>
+            <% if product.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+                <ul>
+                <% product.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>   
+
+            <table class="table">                      
+                <% if @products.first == product %>
+                <thead class="thead-dark">
+                  <th>Image</th>
+                  <th>Product ID</th>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Category</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th></th>
+                  <th></th>
+                <% end %>
+                
+              </thead>
+              <tr>
+                <td><%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %></td>  
+                <td><div class="td-text"><%= product.product_id %></div></td>
+                <td><%= f.text_field :name, :size => "12", class: "td" %></td>                  
+                <td><%= f.text_field :brand, :size => "10", class: "td" %></td>  
+                <td><%= f.text_field :category, :size => "10", class: "td" %></td>   
+                <td><%= f.text_field :quantity, :size => "6", class: "td" %></td>
+                <td><div class="td-text"><%= link_to "#{product.status}" %></div></td> 
+                <td><%= f.text_field :price, :size => "6", class: "td" %></td>                                      
+                <td><%= f.submit "Update", class: "td" %></td>
+              </tr>
+            </table>
+          <% end %>                 
+        <% end %>                 
+      </div>                   
+    </div>     
    </div>
   </body>
 
