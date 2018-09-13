@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /*
  * Carts
@@ -40,4 +41,9 @@
 .admin-page {
   font-size: 25px;
   color: black;
+}
+
+
+.fa-shopping-cart{
+  color: white;
 }
