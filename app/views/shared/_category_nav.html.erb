@@ -6,27 +6,32 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExample03">
-    <ul class="navbar-nav mr-auto">      
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to fa_icon('shopping-cart'), cart_path %>        
-      </li>   
-      <li class="nav-item active">
-        <a class="nav-link" <%= link_to "User", user_page_path %> <span class="sr-only">(current)</span></a>
-      </li>  
-      <li class="nav-item active">
-        <a class="nav-link" <%= link_to "Admin", admin_path %> <span class="sr-only">(current)</span></a>
-      </li>   
-      <li class="nav-item active">        
-        <a class="nav-link" <%= login_helper 'nav-link'  %> <span class="sr-only">(current)</span></a>
-      </li>      
+        <%= link_to "Admin", admin_path, class:'nav-link' if logged_in?(:admin) %>
+      </li>        
     </ul>
-    <form class="form-inline my-2 my-md-0">
-      <%= form_tag products_path, method: :get do %>   
-      <div class="form-control" >         
-        <%= text_field_tag :query, params[:query], class: 'form-control'%>
-        <%= submit_tag "Search", name: nil, class: 'form-control' %>      
-      </div>
-      <% end %>  
-    </form>
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">        
+          <%= login_helper 'nav-link' %>
+        </li>  
+        <li class="nav-item active">
+          <%= link_to fa_icon('user'), user_page_path %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to fa_icon('shopping-cart'), cart_path %>        
+        </li>            
+      <li class="nav-item active">
+        <form class="form-inline my-2 my-md-0">
+          <%= form_tag products_path, method: :get do %>   
+          <div class="form-control" >         
+            <%= text_field_tag :query, params[:query], class: 'form-control'%>
+            <%= submit_tag "Search", name: nil, class: 'form-control' %>      
+          </div>
+          <% end %>  
+       </li>
+      </form>
+    </div>
   </div>
 </nav>

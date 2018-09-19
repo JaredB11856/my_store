@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController  
+  access user: {except: [:destroy, :new, :create, :update, :edit]}, admin: :all
 
   def admin
   end

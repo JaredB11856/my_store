@@ -1,4 +1,5 @@
 class PagesController < ApplicationController  
+  access all: [:show], user: {except: [:destroy, :new, :create, :update, :edit]}, admin: :all
 
   def home
     @page_title = "My Store"    

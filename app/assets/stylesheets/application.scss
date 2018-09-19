@@ -39,11 +39,68 @@
  */
 
 .admin-page {
-  font-size: 25px;
+  font-size: 20px;
   color: black;
 }
 
-
-.fa-shopping-cart{
+/*
+ *  Category-nav
+ */
+.fa { 
+  margin-top: 5px;
+  margin-right: 15px;  
   color: white;
+  font-size: 40px;
+}
+
+/*
+ *  Product
+ */
+
+ .product-details {
+  margin-top: 40px;
+ }
+
+ .box-shadow {
+ border: 1px solid rgba(0, 0, 0, 0.125);
+ margin-top: 40px;
+ height: 235px;
+ width: 210px;
+ }
+
+ .text-right {
+ color: green;
+ }
+ .product-name {
+  margin-top: 10px;
+  text-align: center;
+ }
+
+ .product-card {
+   margin-bottom: 40px;
+   height: 350px;
+   border: none;
+ }
+
+/*
+ *  Login
+ */
+
+.login > .card {
+ 
+ width: 22rem;
+ margin: 0 auto;
+ margin-top: 20%;
+ float: none;
+}
+
+.card {
+  padding: 30px;
+}
+
+.card-block {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: black;
+  text-align: left;
 }
