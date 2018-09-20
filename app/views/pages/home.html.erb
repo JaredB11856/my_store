@@ -28,7 +28,7 @@
             <div class="container">
               <div class="row">
                 <% @products.each do |product| %>
-                  <%= render "product_row", product: product, order_item: @order_item %>
+                  <%= render "shared/product_row", product: product, order_item: @order_item %>
                 <% end %>                
               </div>   
                 <%= paginate @products %>

@@ -21,32 +21,12 @@
           <%= @product.details %>
         </p>                    
       </div>
-
       <div class="col-md-6 order-md-1 payment">
         <div class="row">
           <div class="col-md-12 mb-3">
               <div class="col-md-12">               
-                <div class="card product-card mb-3">
-                  <div class="box-shadow">
-                    <% product = @product %>
-                    <h4 class="product-name"><%= product.name %></small></h4>
-                    <%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %>
-                    <div class="col-xs-8">
-                      
-                    </div>
-                    <div class="col-xs-4">
-                      <%= form_for @order_item, remote: true do |f| %>
-                      <h4 class="text-right"><%= number_to_currency product.price %></span></h4>
-                        <div class="input-group">
-                          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
-                          <div class="input-group-btn">
-                            <%= f.hidden_field :product_id, value: product.id %>
-                            <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
+                <div class="card product-card mb-3">                  
+                  <%= render "shared/product_row", product: @product, order_item: @order_item %>                  
                 </div>
               </div>
             </div>              
