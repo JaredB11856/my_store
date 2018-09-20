@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   access all: [:show], user: {except: [:destroy, :new, :create, :update, :edit]}, admin: :all
 
   def index

@@ -1,9 +1,37 @@
-<div class="masthead clearfix">
-  <div class="inner">
-   <h3 class="masthead-brand">Jared Brown</h3>
-    <nav class="nav nav-masthead app-nav">
-      <%#= nav_helper 'nav-link', 'span' %>
-      <%= login_helper 'nav-link' %>
-    </nav>
+<!-- TODO -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a class="navbar-brand" <%= link_to "Home", root_path %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Admin", admin_path, class:'nav-link' if logged_in?(:admin) %>
+      </li>        
+    </ul>
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">        
+          <%= login_helper 'nav-link' %>
+        </li>  
+        <li class="nav-item active">
+          <%= link_to fa_icon('user'), user_page_path %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to fa_icon('shopping-cart'), cart_path %>        
+        </li>            
+      <li class="nav-item active">
+        <form class="form-inline my-2 my-md-0">
+          <%= form_tag products_path, method: :get do %>   
+          <div class="form-control" >         
+            <%= text_field_tag :query, params[:query], class: 'form-control'%>
+            <%= submit_tag "Search", name: nil, class: 'form-control' %>      
+          </div>
+          <% end %>  
+       </li>
+      </form>
+    </div>
   </div>
-</div>
+</nav>

@@ -1,6 +1,6 @@
 class PurchaseOrdersController < ApplicationController
-  before_action :set_purchase_order, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy, :billing], user: :all
+  before_action :set_purchase_order, only: [:show, :edit, :update]
+  access all: [:index, :show, :new, :edit, :create, :update, :billing], user: :all
 
   # GET /purchase_orders
   def index
@@ -53,17 +53,6 @@ class PurchaseOrdersController < ApplicationController
     else
       render :new      
     end
-    if @purchase_order.update(purchase_order_params)
-      #redirect_to @purchase_order, notice: 'Purchase order was successfully updated.'      
-    else
-      render :edit      
-    end
-  end
-
-  # DELETE /purchase_orders/1
-  def destroy
-    @purchase_order.destroy
-    #redirect_to purchase_orders_url, notice: 'Purchase order was successfully destroyed.'
   end
 
   def billing    

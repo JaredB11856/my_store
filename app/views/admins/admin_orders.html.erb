@@ -1,4 +1,4 @@
-<%= render 'shared/category_nav' %>
+<%= render 'shared/application_nav' %>
 <p id="notice"><%= notice %></p>
 
 <table class="table">
@@ -16,9 +16,9 @@
       <tr>
         <td><%= link_to "#{purchase_order.id}", purchase_order %></td>
         <td><%= purchase_order.created_at.strftime("%m-%d-%Y") %></td>        
-        <td><%= link_to "#{purchase_order.tracking}", purchase_order %></td>
-        <td><%= link_to "#{purchase_order.total}", purchase_order %></td>
-        <td><%= link_to "#{purchase_order.purchase_order_status_id}", purchase_order %></td>
+        <td><%= link_to "#{purchase_order.tracking}" %></td>
+        <td><%= purchase_order.total %></td>
+        <td><%= purchase_order.purchase_order_status_id %></td>
         <td><%= link_to 'Edit', edit_purchase_order_path(purchase_order) %></td>        
       </tr>        
     <% end %>

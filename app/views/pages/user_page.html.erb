@@ -1,8 +1,6 @@
-<%= render 'shared/category_nav' %>
+<%= render 'shared/application_nav' %>
 
 <p id="notice"><%= notice %></p>
-
-
 
 <table class="table">
   <thead class="thead-dark">
@@ -22,9 +20,7 @@
         <td><%= purchase_order.created_at.strftime("%m-%d-%Y") %></td>
         <td><%= purchase_order.purchase_order_status_id %></td>
         <td><%= purchase_order.tracking %></td>
-        <td><%= purchase_order.total %></td> 
-        
-        
+        <td><%= purchase_order.total %></td>        
       </tr>
     <% end %>
   </tbody>
