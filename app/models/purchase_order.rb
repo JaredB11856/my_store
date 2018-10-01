@@ -1,10 +1,12 @@
 class PurchaseOrder < ApplicationRecord
   enum purchase_order_status_id: { cart: 0, processed: 1 }
- attr_accessor :card_number, :card_verification   
+ attr_accessor :card_number, :card_verification, :error_message
 
   def purchase    
-    response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)    
-    return response
+    begin
+      response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)  
+    rescue ActiveMerchant::ConnectionError => e
+    end
   end
   
   def price_in_cents   
@@ -24,15 +26,7 @@ class PurchaseOrder < ApplicationRecord
         :zip      => "billing_zip"
       }
     }
-  end
-  
-  def validate_card
-    unless credit_card.valid?
-      credit_card.errors.full_messages.each do |message|
-        errors.add_to_base message
-      end
-    end
-  end
+  end  
   
   def credit_card
   puts self.inspect

@@ -22,7 +22,6 @@ class PurchaseOrdersController < ApplicationController
 
   # POST /purchase_orders
   def create
-    puts "Create ran"
     @purchase_order = PurchaseOrder.new(purchase_order_params)
     @purchase_order.user_ip = request.remote_ip
     if @purchase_order.save      
@@ -34,21 +33,21 @@ class PurchaseOrdersController < ApplicationController
 
   # PATCH/PUT /purchase_orders/1
   def update    
-    @purchase_order.user_ip = request.remote_ip   
+   @purchase_order.user_ip = request.remote_ip   
     if @purchase_order.save
-      #TODO Move this to model
+      #TODO Move this to model      
         @order_items = current_order.order_items       
         @purchase_order.update!(total: "#{@order_items.sum(&:total_price)}")
         @purchase_order.update!(purchase_order_status_id: :processed)
         @purchase_order.update(purchase_order_params)
-      if @purchase_order.purchase        
+      if @purchase_order.purchase      
         session.delete(:order_id)    
-        redirect_to root_path       
-      else                
+        redirect_to root_path, notice: "Purchase was successfull" 
+      else
         @order_items = current_order.order_items        
         @purchase_order.update!(total: "#{@order_items.sum(&:total_price)}")
         session.delete(:order_id)
-        redirect_to root_path    
+        redirect_to root_path, notice: "Purchase could not be completed."
       end
     else
       render :new      
