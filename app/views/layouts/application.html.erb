@@ -14,17 +14,5 @@
     <!-- TODO -->
     <%#= render "shared/application_nav" %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    
-
-    
-
-    
-
-    <% if session[:source] %>
-     <p>Thanks for visiting me from <%= session[:source] %></p>
-    <% end %>
   </body>
 </html>

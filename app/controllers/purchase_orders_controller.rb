@@ -42,7 +42,7 @@ class PurchaseOrdersController < ApplicationController
         @purchase_order.update(purchase_order_params)
       if @purchase_order.purchase      
         session.delete(:order_id)    
-        redirect_to root_path, notice: "Purchase was successfull" 
+        redirect_to root_path, notice: "Your order has been placed." 
       else
         @order_items = current_order.order_items        
         @purchase_order.update!(total: "#{@order_items.sum(&:total_price)}")
