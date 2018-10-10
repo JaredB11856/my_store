@@ -1,0 +1,136 @@
+<%= form_for(purchase_order) do |f| %>
+  <% if purchase_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(purchase_order.errors.count, "error") %> prohibited this purchase_order from being saved:</h2>
+      <ul>
+      <% purchase_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cc_first_name %>
+    <%= f.text_field :cc_first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cc_last_name %>
+    <%= f.text_field :cc_last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cc_month %>
+    <%= f.text_field :cc_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cc_year %>
+    <%= f.text_field :cc_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :card_type %>
+    <%= f.text_field :card_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_ip %>
+    <%= f.text_field :user_ip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :billing_first_name %>
+    <%= f.text_field :billing_first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :billing_last_name %>
+    <%= f.text_field :billing_last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :billing_address_1 %>
+    <%= f.text_field :billing_address_1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :billing_address_2 %>
+    <%= f.text_field :billing_address_2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :billing_city %>
+    <%= f.text_field :billing_city %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :billing_state %>
+    <%= f.text_field :billing_state %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :billing_country %>
+    <%= f.text_field :billing_country %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :billing_zip %>
+    <%= f.text_field :billing_zip %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping_first_name %>
+    <%= f.text_field :shipping_first_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping_last_name %>
+    <%= f.text_field :shipping_last_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping_address_2 %>
+    <%= f.text_field :shipping_address_2 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping_country %>
+    <%= f.text_field :shipping_country %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping_state %>
+    <%= f.text_field :shipping_state %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping_zip %>
+    <%= f.text_field :shipping_zip %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :subtotal %>
+    <%= f.text_field :subtotal %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :shipping %>
+    <%= f.text_field :shipping %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.text_field :total %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :tracking %>
+    <%= f.text_field :tracking %>
+  </div> 
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

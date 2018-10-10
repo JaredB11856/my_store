@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  resources :add_order_to_shipping_addresses
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}  
-  resources :purchase_orders
+  resources :orders
   resources :search, only: [:index]  
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]  
   resources :products, except: [:show, :edit] 
   
-  put 'purchase_orders', to: 'purchase_orders#update'
+  put 'orders', to: 'orders#update'
   get 'products/:id', to: 'products#show', as: 'product_show'
 
-  get 'billing', to: 'purchase_orders#billing'
+  get 'billing', to: 'orders#billing'
   get 'checkout', to: 'carts#checkout'
 
   get 'about', to: 'pages#about'

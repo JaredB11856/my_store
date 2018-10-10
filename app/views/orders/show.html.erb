@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @order.shipping_addresses[0].name %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @order.subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @order.total %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', user_page_path %>
