@@ -1,20 +1,151 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this @order from being saved:</h2>
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
 <p>
-  <strong>Subtotal:</strong>
-  <%= @order.shipping_addresses[0].name %>
+  <strong>cc_first_name:</strong>
+  <%#= f.text_field :cc_first_name %>
+</p>    
+
+
+<p>
+  <strong>cc_last_name:</strong>
+    <%= f.label :cc_last_name %>
+    <%#= f.text_field :cc_last_name %>
 </p>
 
 <p>
-  <strong>Subtotal:</strong>
-  <%= @order.subtotal %>
+  <strong>cc_month:</strong>
+    <%= f.label :cc_month %>
+    <%#= f.text_field :cc_month %>
 </p>
 
 <p>
-  <strong>Total:</strong>
-  <%= @order.total %>
+  <strong>cc_year:</strong>
+    <%= f.label :cc_year %>
+    <%#= f.text_field :cc_year %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', user_page_path %>
+<p>
+  <strong>card_type:</strong>
+    <%= f.label :card_type %>
+    <%#= f.text_field :card_type %>
+</p>
+
+<p>
+  <strong>user_ip:</strong>
+    <%= f.label :user_ip %>
+    <%#= f.text_field :user_ip %>
+</p>
+
+<p>
+  <strong>billing_first_name:</strong>
+   <%= @order.billing_informations.last.name %>
+</p>
+
+<p>
+  <strong>billing_last_name:</strong>
+    <%= @order.billing_informations.last.name %>
+</p>
+
+<p>
+  <strong>billing_address_1:</strong>
+    <%= @order.billing_informations.last.address_line_1 %>
+</p>
+
+<p>
+  <strong>billing_address_2:</strong>
+   <%= @order.billing_informations.last.address_line_2 %>
+</p>
+
+<p>
+  <strong>billing_city:</strong>
+    <%= @order.billing_informations.last.city %>
+</p>
+  
+<p>
+  <strong>billing_state:</strong>
+    <%= @order.billing_informations.last.state %>
+</p>
+  
+<p>
+  <strong>billing_country:</strong>
+    <%= @order.billing_informations.last.name %>
+</p>
+  
+<p>
+  <strong>billing_zip:</strong>
+    <%= @order.billing_informations.last.zip_code %>
+</p>
+
+  
+<p>
+  <strong>shipping_first_name:</strong>
+    <%= @order.shipping_addresses.last.name %>
+</p>
+  
+<p>
+  <strong>shipping_last_name:</strong>
+    <%= @order.shipping_addresses.last.name %>
+</p>
+
+<p>
+  <strong>shipping_address_1:</strong>
+    <%= @order.shipping_addresses.last.address_line_1 %>
+</p>
+  
+<p>
+  <strong>shipping_address_2:</strong>
+    <%= @order.shipping_addresses.last.address_line_2 %>
+</p>
+  
+<p>
+  <strong>shipping_country:</strong>
+   <%= @order.shipping_addresses.last.city %>
+</p>
+  
+<p>
+  <strong>shipping_state:</strong>
+    <%= @order.shipping_addresses.last.state %>
+</p>
+  
+<p>
+  <strong>shipping_zip:</strong>
+    <%= @order.shipping_addresses.last.zip_code %>
+</p>
+  
+<p>
+  <strong>subtotal:</strong>
+    <%#= f.label :subtotal %>
+    <%#= f.text_field :subtotal %>
+</p>
+  
+<p>
+  <strong>shipping:</strong>
+    <%#= f.label :shipping %>
+    <%#= f.text_field :shipping %>
+</p>
+  
+<p>
+  <strong>total:</strong>
+    <%#= f.label :total %>
+    <%#= f.text_field :total %>
+</p>
+
+<p>
+  <strong>tracking:</strong>
+    <%#= f.label :tracking %>
+    <%#= f.text_field :tracking %>
+</p>
+
+  
+<% end %>

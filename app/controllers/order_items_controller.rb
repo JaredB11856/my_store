@@ -3,6 +3,7 @@ class OrderItemsController < ApplicationController
   def create    
     @order = current_order
     1.times {@order.shipping_addresses.build}
+    1.times {@order.billing_informations.build}
     @order_item = @order.order_items.new(order_item_params)
     @order.save    
     session[:order_id] = @order.id
@@ -23,6 +24,6 @@ class OrderItemsController < ApplicationController
   end
 private
   def order_item_params
-    params.require(:order_item).permit(:quantity, :product_id, shipping_addresses: [:name])
+    params.require(:order_item).permit(:quantity, :product_id)
   end
 end
