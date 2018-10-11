@@ -2,8 +2,8 @@ class OrderItemsController < ApplicationController
 
   def create    
     @order = current_order
-    1.times {@order.shipping_addresses.build}
-    1.times {@order.billing_informations.build}
+    @order.build_shipping_address
+    @order.build_billing_information
     @order_item = @order.order_items.new(order_item_params)
     @order.save    
     session[:order_id] = @order.id

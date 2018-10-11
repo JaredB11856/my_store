@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
   # GET /orders/1
   def show
     @order = Order.find(params[:id])
-    @billing_information = Order.find(params[:id]).billing_informations
   end
 
   # GET /orders/new
@@ -81,8 +80,8 @@ class OrdersController < ApplicationController
                                      :total,
                                      :tracking,
                                      :order_status_id, 
-                                     shipping_addresses_attributes: [:name, :address_line_1, :address_line_2, :city, :state, :zip_code, :phone_number],
-                                     billing_informations_attributes: [:name, :address_line_1, :address_line_2, :city, :state, :zip_code, :phone_number, :cc_type, :cc_last_four],
+                                     shipping_address_attributes: [:name, :address_line_1, :address_line_2, :city, :state, :zip_code, :phone_number, :id],
+                                     billing_information_attributes: [:name, :address_line_1, :address_line_2, :city, :state, :zip_code, :phone_number, :cc_type, :cc_last_four, :id],
                                      )
     end
 end

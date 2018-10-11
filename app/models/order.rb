@@ -1,11 +1,10 @@
 class Order < ActiveRecord::Base  
   belongs_to :order_status
-  has_many :shipping_addresses
-  has_many :billing_informations
-  accepts_nested_attributes_for :shipping_addresses
-  accepts_nested_attributes_for :billing_informations
-
+  has_one :shipping_address
+  has_one :billing_information
   has_many :order_items
+  accepts_nested_attributes_for :shipping_address
+  accepts_nested_attributes_for :billing_information  
   before_create :set_order_status
   before_save :update_subtotal
 
