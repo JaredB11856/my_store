@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181010235009) do
+ActiveRecord::Schema.define(version: 20181012175508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20181010235009) do
     t.datetime "updated_at",             null: false
     t.integer  "billing_information_id"
     t.integer  "order_id"
+    t.string   "country"
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["billing_information_id"], name: "index_billing_informations_on_billing_information_id", unique: true, using: :btree
     t.index ["invoice_id"], name: "index_billing_informations_on_invoice_id", using: :btree
     t.index ["order_id"], name: "index_billing_informations_on_order_id", using: :btree
@@ -98,6 +101,7 @@ ActiveRecord::Schema.define(version: 20181010235009) do
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
     t.integer  "shipping_address_id"
+    t.string   "tracking"
     t.index ["shipping_address_id"], name: "index_orders_on_shipping_address_id", using: :btree
   end
 
@@ -166,6 +170,10 @@ ActiveRecord::Schema.define(version: 20181010235009) do
     t.integer  "invoice_id"
     t.integer  "shipping_address_id"
     t.integer  "order_id"
+    t.string   "country"
+    t.string   "shipping_option"
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["invoice_id"], name: "index_shipping_addresses_on_invoice_id", using: :btree
     t.index ["order_id"], name: "index_shipping_addresses_on_order_id", using: :btree
     t.index ["shipping_address_id"], name: "index_shipping_addresses_on_shipping_address_id", unique: true, using: :btree

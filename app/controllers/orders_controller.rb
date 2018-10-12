@@ -75,13 +75,37 @@ class OrdersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def order_params
       params[:order].permit(
-                                     :subtotal,
-                                     :shipping,
-                                     :total,
-                                     :tracking,
-                                     :order_status_id, 
-                                     shipping_address_attributes: [:name, :address_line_1, :address_line_2, :city, :state, :zip_code, :phone_number, :id],
-                                     billing_information_attributes: [:name, :address_line_1, :address_line_2, :city, :state, :zip_code, :phone_number, :cc_type, :cc_last_four, :id],
-                                     )
+                             :subtotal,
+                             :shipping,
+                             :total,
+                             :tracking,
+                             :order_status_id, 
+                             shipping_address_attributes: [
+                                                           :first_name,
+                                                           :last_name,
+                                                           :address_line_1,
+                                                           :address_line_2,
+                                                           :city,
+                                                           :state,
+                                                           :zip_code,
+                                                           :country,                                                           
+                                                           :shipping_option,
+                                                           :id
+                                                          ],
+                             billing_information_attributes: [
+                                                               :first_name,
+                                                               :last_name,
+                                                               :address_line_1,
+                                                               :address_line_2,
+                                                               :city,
+                                                               :state,
+                                                               :zip_code,
+                                                               :country,
+                                                               :phone_number,
+                                                               :cc_type,
+                                                               :cc_last_four,
+                                                               :id
+                                                              ]
+                            )
     end
 end

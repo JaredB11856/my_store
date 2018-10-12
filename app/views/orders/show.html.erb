@@ -49,12 +49,12 @@
 
 <p>
   <strong>billing_first_name:</strong>
-   <%= @order.billing_information.name %>
+   <%= @order.billing_information.first_name %>
 </p>
 
 <p>
   <strong>billing_last_name:</strong>
-    <%= @order.billing_information.name %>
+    <%= @order.billing_information.last_name %>
 </p>
 
 <p>
@@ -66,11 +66,6 @@
   <strong>billing_address_2:</strong>
    <%= @order.billing_information.address_line_2 %>
 </p>
-
-<p>
-  <strong>billing_city:</strong>
-    <%= @order.billing_information.city %>
-</p>
   
 <p>
   <strong>billing_state:</strong>
@@ -78,24 +73,23 @@
 </p>
   
 <p>
-  <strong>billing_country:</strong>
-    <%= @order.billing_information.name %>
+  <strong>billing_city:</strong>
+    <%= @order.billing_information.city %>
 </p>
   
 <p>
   <strong>billing_zip:</strong>
     <%= @order.billing_information.zip_code %>
 </p>
-
   
 <p>
   <strong>shipping_first_name:</strong>
-    <%= @order.shipping_address.name %>
+    <%= @order.shipping_address.first_name %>
 </p>
   
 <p>
   <strong>shipping_last_name:</strong>
-    <%= @order.shipping_address.name %>
+    <%= @order.shipping_address.last_name %>
 </p>
 
 <p>
@@ -125,26 +119,23 @@
   
 <p>
   <strong>subtotal:</strong>
-    <%#= f.label :subtotal %>
-    <%#= f.text_field :subtotal %>
+    <%= @order.subtotal %>
 </p>
   
 <p>
   <strong>shipping:</strong>
-    <%#= f.label :shipping %>
-    <%#= f.text_field :shipping %>
+    <%= @order.shipping_address.shipping_option %>
 </p>
   
 <p>
   <strong>total:</strong>
-    <%#= f.label :total %>
+    <%= @order.total %>
     <%#= f.text_field :total %>
 </p>
 
 <p>
   <strong>tracking:</strong>
-    <%#= f.label :tracking %>
-    <%#= f.text_field :tracking %>
+    <%= @order.tracking %>
 </p>
 
   

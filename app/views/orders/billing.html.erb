@@ -110,14 +110,14 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>                                
-                <%= billing_form.text_field :name, class:"form-control", required:false, value: "Jared"%>
+                <%= billing_form.text_field :first_name, class:"form-control", required:false, value: "Jared"%>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
-                <%= billing_form.text_field :name, class:"form-control", required:false, value: "Brown" %>
+                <%= billing_form.text_field :last_name, class:"form-control", required:false, value: "Brown" %>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -134,19 +134,19 @@
                 <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
                 <%= billing_form.text_field :address_line_2, class:"form-control"%>
               </div>
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <label for="billing_country" >Country</label>
-                   <%= billing_form.select :city, [["United States", "united_states"]], {}, { :class => "custom-select" } %>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
-                </div>
+              <div class="row">                
                 <div class="col-md-4 mb-3">
                   <label for="state">State</label>
                   <%= billing_form.select :state, [["Idaho", "idaho"]], {}, { :class => "custom-select" } %> 
                   <div class="invalid-feedback">
                     Please provide a valid state.
+                  </div>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="city">City</label>
+                  <%= billing_form.text_field :city, class:"form-control", required:false %>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
                   </div>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -169,21 +169,21 @@
               <div class="row">
                 <div class="col-md-4 mb-3">  
                 <label for="name">First name</label>  
-                    <%= shipping_form.text_field :name, class:"form-control", required:false  %>  
+                    <%= shipping_form.text_field :first_name, class:"form-control", required:false  %>  
                   <div class="invalid-feedback">
                     Valid first name is required.
                   </div>
                 </div>                
                 <div class="col-md-4 mb-3">
                   <label for="lastName">Last name</label>
-                    <%= shipping_form.text_field :name, class:"form-control", required:false  %>      
+                    <%= shipping_form.text_field :last_name, class:"form-control", required:false  %>      
                   <div class="invalid-feedback">
                     Valid last name is required.
                   </div>
                 </div>
                 <div class="col-md-3 mb-3">
                   <label for="shipping_option">Shipping</label>                  
-                  <%= shipping_form.select :state, [["One Day", "one_day"], ["Two Day", "two_day"], ["Three Day", "three_day"], ["Economy", "economy"]], {}, { :class => "custom-select" }  %>
+                  <%= shipping_form.select :shipping_option, [["One Day", "one_day"], ["Two Day", "two_day"], ["Three Day", "three_day"], ["Economy", "economy"]], {}, { :class => "custom-select" }  %>
                   <div class="invalid-feedback">
                     Security code required
                   </div>
@@ -200,23 +200,23 @@
                 <label for="shipping_address_2">Address 2 <span class="text-muted">(Optional)</span></label>
                 <%= shipping_form.text_field :address_line_2, class:"form-control", required:false  %>      
               </div>
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  <label for="country" >Country</label>
-                   <%= shipping_form.select :state, [["United States", "united_states"]], {}, { :class => "custom-select" } %>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
-                </div>
+              <div class="row">                
                 <div class="col-md-4 mb-3">
                   <label for="state" >State</label>
                    <%= shipping_form.select :state, [["Idaho", "idaho"]], {}, { :class => "custom-select" } %>
                   <div class="invalid-feedback">
-                    Please select a valid country.
+                    Please select a valid state.
+                  </div>
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="city">City</label>
+                  <%= shipping_form.text_field :city, class:"form-control", required:false %>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
                   </div>
                 </div>
                 <div class="col-md-3 mb-3">                  
-                    <%= shipping_form.label :zip_code %>
+                    <label for="zip">Zip</label>
                     <%= shipping_form.text_field :zip_code, class:"form-control", required:false  %>      
                   <div class="invalid-feedback">
                     Zip code required.
