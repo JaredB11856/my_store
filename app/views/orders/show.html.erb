@@ -12,39 +12,13 @@
 
 
 <p>
-  <strong>cc_first_name:</strong>
-  <%#= f.text_field :cc_first_name %>
-</p>    
-
-
-<p>
-  <strong>cc_last_name:</strong>
-    <%= f.label :cc_last_name %>
-    <%#= f.text_field :cc_last_name %>
-</p>
-
-<p>
-  <strong>cc_month:</strong>
-    <%= f.label :cc_month %>
-    <%#= f.text_field :cc_month %>
-</p>
-
-<p>
-  <strong>cc_year:</strong>
-    <%= f.label :cc_year %>
-    <%#= f.text_field :cc_year %>
+  <strong>Name:</strong>
+  <%= @order.card.name %>
 </p>
 
 <p>
   <strong>card_type:</strong>
-    <%= f.label :card_type %>
-    <%#= f.text_field :card_type %>
-</p>
-
-<p>
-  <strong>user_ip:</strong>
-    <%= f.label :user_ip %>
-    <%#= f.text_field :user_ip %>
+    <%= @order.card.card_type %>
 </p>
 
 <p>

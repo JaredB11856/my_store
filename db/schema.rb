@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012175508) do
+ActiveRecord::Schema.define(version: 20181012224615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20181012175508) do
     t.index ["user_id"], name: "index_billing_informations_on_user_id", using: :btree
   end
 
-  create_table "credit_cards", force: :cascade do |t|
+  create_table "cards", force: :cascade do |t|
     t.string   "name"
     t.string   "expiration_mm"
     t.string   "expiration_yy"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20181012175508) do
     t.string   "cvc"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "card_type"
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_cards_on_order_id", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -202,6 +205,7 @@ ActiveRecord::Schema.define(version: 20181012175508) do
   add_foreign_key "billing_informations", "invoices"
   add_foreign_key "billing_informations", "orders"
   add_foreign_key "billing_informations", "users"
+  add_foreign_key "cards", "orders"
   add_foreign_key "invoices", "users"
   add_foreign_key "order_items", "invoices"
   add_foreign_key "order_items", "orders"

@@ -40,68 +40,60 @@
             </div>
           </div>          
         </div>
-
-        <div class="col-md-9 order-md-1 payment">
-        <h4 class="mb-3">Payment</h4>       
-          <div class="row">
-            <div class="col-md-3 mb-3">
-              <label for="cc_name">Name on card</label>
-              <%= f.text_field :cc_first_name, class:"form-control", required:false, value: "John" %>
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Name on card is required
+        
+        
+          <div class="col-md-9 order-md-1 payment">
+          <h4 class="mb-6">Payment</h4>       
+            <div class="row">              
+              <%= f.fields_for :card, @order.card do |card_form| %>
+                <div class="col-md-3 mb-3">
+                  <label for="name">Name on card</label>
+                  <%= card_form.text_field :name, class:"form-control", required:false, value: "John" %>
+                  <small class="text-muted">Full name as displayed on card</small>
+                  <div class="invalid-feedback">
+                    Name on card is required
+                  </div>
+                </div>              
+              <div class="col-md-6 mb-3">
+                <label for="cc_number">Credit card number</label>
+                <%= f.text_field :card_number, class:"form-control", required:false, value: "4032038747093601" %>
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
               </div>
             </div>
-            <div class="col-md-3 mb-3">
-              <label for="cc_name">Name on card</label>
-              <%= f.text_field :cc_last_name, class:"form-control", required:false, value: "Smith" %>
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Name on card is required
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc_expiration_mm">Expiration MM</label>
+                <%= f.text_field :cc_month, class:"form-control", required:false, value: "8" %>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="cc_number">Credit card number</label>
-              <%= f.text_field :card_number, class:"form-control", required:false, value: "4032038747093601" %>
-              <div class="invalid-feedback">
-                Credit card number is required
+              <div class="col-md-3 mb-3">
+                <label for="cc_expiration_yy">Expiration YY</label>
+                <%= f.text_field :cc_year, class:"form-control", required:false, value: "2023" %>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
               </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc_cvv">CVC</label>
+                <%= f.text_field :card_verification, class:"form-control", required:false, value: "123" %>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>                           
+                <div class="col-md-3 mb-3">
+                  <label for="card_type">Card Type</label>
+                  <%= card_form.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {}, { :class => "custom-select" } %>
+                  <div class="invalid-feedback">
+                    Security code required
+                  </div>
+                </div>   
+             <% end %>  
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-3 mb-3">
-              <label for="cc_expiration_mm">Expiration MM</label>
-              <%= f.text_field :cc_month, class:"form-control", required:false, value: "8" %>
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="cc_expiration_yy">Expiration YY</label>
-              <%= f.text_field :cc_year, class:"form-control", required:false, value: "2023" %>
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="cc_cvv">CVC</label>
-              <%= f.text_field :card_verification, class:"form-control", required:false, value: "123" %>
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-            <!--
-            <div class="col-md-3 mb-3">
-              <label for="card_type">Card Type</label>
-              <-- TODO style--
-              <#%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {}, { :class => "custom-select" } %>
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-          -->
-          </div>
+          
         
           
           <%= f.fields_for :billing_information, @order.billing_information do |billing_form| %>   
