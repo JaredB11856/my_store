@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
       #TODO Move this to model      
         @order_items = current_order.order_items       
         @order.update!(total: "#{@order_items.sum(&:total_price)}")
-        @order.update!(order_status_id: :processed)
+        @order.update!(order_status_id: :processed)        
         @order.update(order_params)
       if @order.purchase        
         session.delete(:order_id)    

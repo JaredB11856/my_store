@@ -6,6 +6,7 @@
   <thead class="thead-dark">
     <tr>
       <th>Order</th>
+      <th>User</th>
       <th>Date Placed</th>
       <th>Status</th>
       <th>Tracking</th>
@@ -15,11 +16,12 @@
 
   <tbody>
     <% @orders.each do |order| %>
-      <tr>        
+      <tr>                
         <td><%= link_to "#{order.id}", order %></td>          
+        <td><%= "#{order.user.id}" %></td>      
         <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
         <td><%= order.order_status_id %></td>
-        <td><%#= order.tracking %></td>
+        <td><%= order.tracking %></td>
         <td><%= order.total %></td>        
       </tr>
     <% end %>

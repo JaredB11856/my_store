@@ -19,8 +19,9 @@ class PagesController < ApplicationController
 
   ##TODO make better name than user_page
   def user_page  
-    @order_items = OrderItem.all   
-    @orders = Order.all
+    @order_items = OrderItem.all       
     @purchase_orders = PurchaseOrder.all
+    @orders = current_user.orders
+    @all_orders = Order.all
   end   
 end

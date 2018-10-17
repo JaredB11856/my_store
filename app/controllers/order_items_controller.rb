@@ -5,6 +5,7 @@ class OrderItemsController < ApplicationController
     @order.build_shipping_address
     @order.build_billing_information
     @order.build_card
+    @order.user_id = current_user.id    
     @order_item = @order.order_items.new(order_item_params)
     @order.save    
     session[:order_id] = @order.id
