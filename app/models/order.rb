@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base  
-  belongs_to :order_status
+  belongs_to :user
   has_one :shipping_address
   has_one :billing_information
   has_one :card
