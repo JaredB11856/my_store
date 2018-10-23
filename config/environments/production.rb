@@ -91,4 +91,5 @@ Rails.application.configure do
     :password => "2CV8QR9LBEFDVWP4",
     :signature => "A.XOJFbCOgWS3AGK6A0Equv15VTdAKWLzKA8r0ZD1XIxORXOFSm7TMXy"
   )
+  end
 end
