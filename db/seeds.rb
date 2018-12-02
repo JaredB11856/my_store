@@ -1,6 +1,3 @@
-
-
-
 Product.delete_all
 
 User.create!(
@@ -24,7 +21,7 @@ Product.create!(
     price: "129.99",
     brand: "Samsung",      
     category: "Monitors".downcase,
-    name: "Monitor",
+    name: "Monitor 1",
     id: 1,
     active: true,
     product_id: "product_1",
@@ -38,7 +35,7 @@ Product.create!(
     price: "129.99",
     brand: "Samsung",      
     category: "Monitors".downcase,
-    name: "Monitor",
+    name: "Monitor 2",
     id: 2,
     active: true,
     product_id: "product_2",
@@ -52,7 +49,7 @@ Product.create!(
     price: "129.99",
     brand: "Samsung",      
     category: "Monitors".downcase,
-    name: "Monitor",
+    name: "Monitor 3",
     id: 3,
     active: true,
     product_id: "product_3",
@@ -80,7 +77,7 @@ Product.create!(
     price: "349.99",
     brand: "Intel",      
     category: "CPUs".downcase,
-    name: "Core i7",
+    name: "Core i7 2",
     id: 5,
     active: true,
     product_id: "product_5",
@@ -94,7 +91,7 @@ Product.create!(
     price: "349.99",
     brand: "Intel",      
     category: "CPUs".downcase,
-    name: "Core i7",
+    name: "Core i7 3",
     id: 6,
     active: true,
     product_id: "product_6",
@@ -108,7 +105,7 @@ Product.create!(
     price: "39.99",
     brand: "Logitech",      
     category: "Keyboards".downcase,
-    name: "Logitech",
+    name: "Logitech 1",
     id: 7,
     active: true,
     product_id: "product_7",
@@ -122,7 +119,7 @@ Product.create!(
     price: "39.99",
     brand: "Logitech",      
     category: "Keyboards".downcase,
-    name: "Logitech",
+    name: "Logitech 2",
     id: 8,
     active: true,
     product_id: "product_8",
@@ -136,7 +133,7 @@ Product.create!(
     price: "39.99",
     brand: "Logitech",      
     category: "Keyboards".downcase,
-    name: "Logitech",
+    name: "Logitech 3",
     id: 9,
     active: true,
     product_id: "product_9",

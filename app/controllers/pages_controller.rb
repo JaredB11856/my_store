@@ -11,6 +11,16 @@ class PagesController < ApplicationController
     @order_item = current_order.order_items.new
   end
 
+  def cpus
+  end
+
+  def keyboards
+  end
+
+  def monitors
+  end
+
+
   def about
   end
 

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'billing', to: 'orders#billing'
   get 'checkout', to: 'carts#checkout'
 
+  get 'cpus', to: 'pages#cpus'
+  get 'keyboards', to: 'pages#keyboards'
+  get 'monitors', to: 'pages#monitors'
   get 'about', to: 'pages#about'
   get 'contact', to: 'pages#contact'
 
