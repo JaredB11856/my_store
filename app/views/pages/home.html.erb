@@ -19,20 +19,41 @@
   </head>  
 
   <body>
-    <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>               
+      
+    
+      
     <div class="container-fluid">
-      <div class="row">         
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">                    
-          <div class="album py-5 bg-light">
-            <div class="container">
-              <div class="row">
+
+      <div class="row" ">  
+
+        <div class=" col-md-2 filter-menu" style="border: 1px solid red;">
+          <div class="col-md-3" ">   
+          <% @my_array.each do |array| %>          
+            <form >
+              <%= form_tag products_path, method: :get do %>   
+                     
+                <%#= text_field_tag :query, 'XYZ', class: 'form-control'%>
+                <%#= submit_tag :query, 'Samsung', class: 'form-control', disabled: false %>     
+                <%#= button_to "New Post", { :action => "new" }, method => :get %> 
+                <input id=query" name="query" type="submit" value=<%="#{array}"%> /> 
+            <% end %>              
+          <% end %>   
+          </div> 
+
+        </div>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4" ">                    
+          
+            <div class="container" ">
+              <div class="row" ">
                 <% @products.each do |product| %>
                   <%= render "shared/product_row", product: product, order_item: @order_item %>
                 <% end %>                
               </div>   
-                <%= paginate @products %>
+                <%#= paginate @products %>
             </div>
-          </div>  
+          
        </main>
      </div>
    </div>

@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]  
   resources :products, except: [:show, :edit] 
   
+  #get 'filters', to: 'pages#filter_menu' 
+
+  #get '/button3', to: 'carts#place_order', as: 'button3'
+  get 'button1', to: 'pages#filter_menu', as: "button1"  
+
+
   put 'orders', to: 'orders#update'
   get 'products/:id', to: 'products#show', as: 'product_show'
 
@@ -28,5 +34,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  
+  
  
 end

@@ -62,8 +62,7 @@
  }
 
  .box-shadow {
- border: 1px solid rgba(0, 0, 0, 0.125);
- margin-top: 40px;
+ border: 1px solid rgba(0, 0, 0, 0.125); 
  height: 235px;
  width: 210px;
  }
@@ -99,4 +98,8 @@
   margin-bottom: 5px;
   color: black;
   text-align: left;  
+}
+
+.container-fluid {
+
 }
