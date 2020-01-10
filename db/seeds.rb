@@ -4,7 +4,7 @@ User.create!(
     email: "test@test.com",
     password: "123456",
     name: "test",
-    role: "user"
+    role: "registered_user"
   )
 User.create!(
     email: "admin@test.com",
