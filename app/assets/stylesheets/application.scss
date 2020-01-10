@@ -103,3 +103,22 @@
 .container-fluid {
 
 }
+
+
+.filter-item {
+    display: flex;
+    align-items: center;
+
+}
+
+.filter-checkbox { 
+    margin-right: 10px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+.filter-menu {
+  border: 1px solid black;
+}

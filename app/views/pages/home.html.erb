@@ -27,23 +27,39 @@
 
       <div class="row" ">  
 
-        <div class=" col-md-2 filter-menu" style="border: 1px solid red;">
-          <div class="col-md-3" ">   
-          <% @my_array.each do |array| %>          
+        <div class="col-md-2 filter-menu">
+          <div class="col-md-3" ">  
+           <% if @my_array.count > 0 %>
+            <h1> Brand </h1>
+           <% end %>
+           <% i = 0 %>
+          <% @my_array.each do |array| %>     
+            <% i += 1 %>
             <form >
               <%= form_tag products_path, method: :get do %>   
                      
                 <%#= text_field_tag :query, 'XYZ', class: 'form-control'%>
                 <%#= submit_tag :query, 'Samsung', class: 'form-control', disabled: false %>     
                 <%#= button_to "New Post", { :action => "new" }, method => :get %> 
-                <input id=query" name="query" type="submit" value=<%="#{array}"%> /> 
-            <% end %>              
+                <!--<input id=query" name="query" type="submit" value=<%="#{array}"%> /> 
+                -->
+                <div class="filter-item">
+                  <div class="filter-checkbox filter-item">
+                    <input type="checkbox" name="query" value=<%="#{array}"%> id="query"><label for="love"><%="#{array}"%></label>
+                  </div>
+                
+                <% while i == @my_array.count %>                
+                  <button type="submit">Filter</button>
+                   <% i += 1 %>
+                 <% end %>
+                 </div>
+             <% end %>   
+            </form>           
           <% end %>   
           </div> 
-
         </div>
 
-        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4" ">                    
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4" >                    
           
             <div class="container" ">
               <div class="row" ">
