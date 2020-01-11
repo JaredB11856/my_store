@@ -21,7 +21,15 @@
   </head>  
 
   <body>
-    <%= render 'shared/application_nav' %>   
+   <div class="row admin-nav">  
+    <%= link_to "Home", root_path %>
+    <div id="caret-right"> <%= link_to fa_icon('caret-right'), user_page_path if logged_in?(:admin, :registered_user) %>
+      </div>
+    <%= link_to "Admin", admin_path %>   
+      <div id="caret-right"> <%= link_to fa_icon('caret-right'), user_page_path if logged_in?(:admin, :registered_user) %>
+      </div>
+    <%= link_to "Inventory", admin_inventory_path %>   
+  </div>
     <div class="container-fluid">          
       <div class="container">
         <div class="row"> 
