@@ -61,5 +61,6 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'activemerchant', '~> 1.83'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+gem 'simple_form', '~> 5.0', '>= 5.0.1'
 
 ruby "2.3.0"
