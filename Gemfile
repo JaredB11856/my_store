@@ -53,7 +53,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'bootstrap', '~> 4.1'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'petergate', '~> 1.8', '>= 1.8.1'
@@ -61,5 +61,7 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'pg_search', '~> 2.1', '>= 2.1.2'
 gem 'activemerchant', '~> 1.83'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+gem 'simple_form', '~> 5.0', '>= 5.0.1'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 ruby "2.3.0"
