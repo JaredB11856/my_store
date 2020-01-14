@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
 
   get 'user_page', to: 'pages#user_page'
+  get 'user_billing', to: 'pages#user_billing'
+  get 'user_shipping', to: 'pages#user_shipping'
+  get 'user_settings', to: 'pages#user_settings'
+  get 'user_order_history', to: 'pages#user_order_history'
 
   get 'admin', to: 'admins#admin'
   get 'admin/inventory', to: 'admins#admin_inventory'

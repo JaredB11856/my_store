@@ -1,0 +1,27 @@
+<%= render 'shared/application_nav' %>
+
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Order</th>      
+      <th>Date Placed</th>
+      <th>Status</th>
+      <th>Tracking</th>
+      <th>Total</th>      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>                
+        <td><%= link_to "#{order.id}", order %></td>                  
+        <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
+        <td><%= order.order_status_id %></td>
+        <td><%= order.tracking %></td>
+        <td><%= order.total %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

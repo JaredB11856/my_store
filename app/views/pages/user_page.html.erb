@@ -2,26 +2,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>Order</th>      
-      <th>Date Placed</th>
-      <th>Status</th>
-      <th>Tracking</th>
-      <th>Total</th>      
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>                
-        <td><%= link_to "#{order.id}", order %></td>                  
-        <td><%= order.created_at.strftime("%m-%d-%Y") %></td>
-        <td><%= order.order_status_id %></td>
-        <td><%= order.tracking %></td>
-        <td><%= order.total %></td>        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to "Order History", user_order_history_path %>
+<br>
+<%= link_to "billing", user_billing_path %>
+<br>
+<%= link_to "shipping", user_shipping_path %>
+<br>
+<%= link_to "settings", user_settings_path %>
