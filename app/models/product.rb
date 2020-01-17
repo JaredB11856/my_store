@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   enum status: { active: 0, inactive: 1 }
   validates_presence_of :category, :main_image
 
-  pg_search_scope :search, against: [:name, :brand],
+  pg_search_scope :search, against: [:name, :brand, :category],
     using: { tsearch: { dictionary: "english" }} 
 
   default_scope { where(active: true) }

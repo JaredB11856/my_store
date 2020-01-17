@@ -13,12 +13,33 @@ class PagesController < ApplicationController
   end
 
   def cpus
+        @page_title = "My Store"   
+    if params[:query].present?
+      @products = Product.search(params[:query]).page(params[:page]).per(8)                  
+    else
+      @products = Product.search("cpus").page(params[:page]).per(8) 
+    end
+    @order_item = current_order.order_items.new
   end
 
   def keyboards
+        @page_title = "My Store"   
+    if params[:query].present?
+      @products = Product.search(params[:query]).page(params[:page]).per(8)                  
+    else
+      @products = Product.search("keyboards").page(params[:page]).per(8) 
+    end
+    @order_item = current_order.order_items.new
   end
 
   def monitors
+        @page_title = "My Store"   
+    if params[:query].present?
+      @products = Product.search(params[:query]).page(params[:page]).per(8)                  
+    else
+      @products = Product.search("monitors").page(params[:page]).per(8) 
+    end
+    @order_item = current_order.order_items.new
   end
 
 
