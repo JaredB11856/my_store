@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :search, only: [:index]  
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]  
-  resources :products, except: [:show, :edit]   
+  resources :products do 
+      collection do
+      put :update_multiple
+    end
+  end
 
   #get '/button3', to: 'carts#place_order', as: 'button3'
 
@@ -30,7 +34,7 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admins#admin'
   get 'admin/inventory', to: 'admins#admin_inventory'
-  get 'admin/orders', to: 'admins#admin_orders'
+  get 'admin/orders', to: 'admins#admin_orders'  
 
   root to: 'pages#home'   
 end

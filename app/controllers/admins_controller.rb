@@ -11,5 +11,5 @@ class AdminsController < ApplicationController
   def admin_orders
    @orders = Order.all
   end
-  
+
 end

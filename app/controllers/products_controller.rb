@@ -31,6 +31,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update_multiple
+    Product.update(params[:products].keys, params[:products].values)
+    redirect_to admin_inventory_path, notice: 'Product information was successfully updated.'
+  end
+
    private
     # Use callbacks to share common setup or constraints between actions.
     def set_product           
