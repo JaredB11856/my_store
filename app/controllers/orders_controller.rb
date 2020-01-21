@@ -41,7 +41,8 @@ class OrdersController < ApplicationController
         @order.update!(total: "#{@order_items.sum(&:total_price)}")
         @order.update!(order_status_id: :processed)        
         @order.update(order_params)
-      if @order.purchase        
+      if @order.purchase
+        remove_from_inventory
         session.delete(:order_id)    
         redirect_to root_path, notice: "Your order has been placed." 
       else
@@ -52,6 +53,14 @@ class OrdersController < ApplicationController
       end
     else
       render :new      
+    end
+  end
+
+  def remove_from_inventory
+    @order_items.each do |order_item|  
+      product = Product.find(order_item.product_id)
+      product.quantity = (product.quantity - order_item.quantity)
+      product.update!(quantity: product.quantity)
     end
   end
 
