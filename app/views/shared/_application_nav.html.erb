@@ -32,10 +32,10 @@
           <%= login_helper 'nav-link' %>
         </li>  
         <li class="nav-item active">
-          <%= link_to fa_icon('user'), user_page_path if logged_in?(:admin, :registered_user) %>
+          <%= link_to fa_icon('user'), user_page_path, id: "nav-icon" if logged_in?(:admin, :registered_user) %>
         </li>
         <li class="nav-item active">
-          <%= link_to fa_icon('shopping-cart'), cart_path %>      
+          <%= link_to fa_icon('shopping-cart'), cart_path, id: "nav-icon" %>  
         </li>            
       <li class="nav-item active">
         <form class="form-inline my-2 my-md-0">

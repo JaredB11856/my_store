@@ -1,10 +1,12 @@
 <div class="row admin-nav">  
   <%= link_to "Home", root_path %>
-  <div id="caret-right"> <%= link_to fa_icon('caret-right'), user_page_path if logged_in?(:admin, :registered_user) %>
-    </div>
+  <div> 
+    <i class="fa fa-caret-right" id="admin-nav-icon"></i>
+  </div>
   <%= link_to "Admin", admin_path %>   
-    <div id="caret-right"> <%= link_to fa_icon('caret-right'), user_page_path if logged_in?(:admin, :registered_user) %>
-    </div>
+  <div> 
+    <i class="fa fa-caret-right" id="admin-nav-icon"></i>
+  </div>
   <%= link_to "Orders", admin_orders_path %>   
 </div>
 

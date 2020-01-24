@@ -40,7 +40,7 @@
 
 .admin-page {
   font-size: 20px;
-  color: black;
+  color: black !important;
 }
 
 .admin-nav {
@@ -48,14 +48,15 @@
  font-size: 30px; 
 }
 
-#caret-right{
-  margin-left: 15px;
-  color: black;
+#admin-nav-icon{
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;  
 }
 /*
  *  Category-nav
  */
-.fa { 
+#nav-icon { 
   margin-top: 5px;
   margin-right: 15px;  
   color: white;
