@@ -72,8 +72,7 @@ class OrdersController < ApplicationController
     #TODO
     # If the there is a order already completed or status_id.placed then crate a new one otherwise use the old one.
     #if order.status_id.placed 
-    rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "Wrong post it"  
+    rescue ActiveRecord::RecordNotFound      
       redirect_to root_path, notice: "Please add an item to your cart."
   end
 
