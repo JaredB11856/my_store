@@ -65,13 +65,16 @@ class OrdersController < ApplicationController
   end
 
   def billing    
-    @order_items = current_order.order_items
+    @order_items = current_order.order_items  
     @order = Order.find(session[:order_id])
     @order.update!(order_status_id: :cart)
     
     #TODO
     # If the there is a order already completed or status_id.placed then crate a new one otherwise use the old one.
     #if order.status_id.placed 
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "Wrong post it"  
+      redirect_to root_path, notice: "Please add an item to your cart."
   end
 
   private
