@@ -1,13 +1,13 @@
 <h1> 
-  <%= link_to "Home", root_path %>   
+  <%= link_to "Home", root_path, class: "admin-link", id:"admin-heading"%>   
 </h1>
 
 <div class="row">
   <div class="col-md-3" >
-    <div class="col-md-12 col-lg-4 admin-page">
-      <%= link_to "Orders", admin_orders_path %>
+    <div class="col-md-12 col-lg-4 ">
+      <%= link_to "Orders", admin_orders_path, class: "admin-link"%>
       <br>
-      <%= link_to "Inventory", admin_inventory_path %>
+      <%= link_to "Inventory", admin_inventory_path, class: "admin-link"%>
    </div>
   </div>
 </div>

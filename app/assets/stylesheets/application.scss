@@ -34,12 +34,20 @@
   text-align: center;
 }
 
+.number_field {
+  width: 60px;  
+}
+
+.price_number_field {
+  width: 100px;  
+}
+
 /*
  *  Amdmin
  */
 
-.admin-page {
-  font-size: 20px;
+.admin-link {
+  font-size: 29px;
   color: black !important;
 }
 
@@ -48,9 +56,14 @@
  font-size: 30px; 
 }
 
+#admin-heading {
+  font-size: 45px;
+}
+
 #admin-nav-icon{
   margin-left: 10px;
   margin-right: 10px;
+  font-size: 30px; 
   color: black;  
 }
 /*
