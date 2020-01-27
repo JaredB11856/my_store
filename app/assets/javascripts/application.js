@@ -16,3 +16,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+$('table').on('click','.inventory_row',function() {
+    $(this).parent('tr').find('input').prop("checked",true);
+     });
+});
