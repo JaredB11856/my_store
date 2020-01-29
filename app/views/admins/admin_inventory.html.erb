@@ -39,7 +39,7 @@
               <thead class="thead-dark">
                 <th></th>
                 <th>Image</th>
-                <th>Product ID</th>
+                <th>UPC</th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Category</th>
@@ -64,7 +64,7 @@
                 <tr>                      
                   <td class="inventory_row"><%= check_box_tag 'product_ids[]', product.id%></td>
                   <td><%= link_to (image_tag product.main_image ), product_path(product) unless product.main_image.nil?  %></td>  
-                  <td class="inventory_row"><div class="td-text"><%= product.product_id %></div></td>
+                  <td class="inventory_row"><%= f.text_field :upc, size: "8", class: "td" %></td> 
                   <td class="inventory_row"><%= f.text_field :name, size: "12", class: "td" %></td>                  
                   <td class="inventory_row"><%= f.text_field :brand, size: "10", class: "td" %></td>  
                   <td class="inventory_row"><%= f.text_field :category, size: "10", class: "td" %></td>   

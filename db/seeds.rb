@@ -24,7 +24,7 @@ Product.create!(
     name: "Monitor 1",
     id: 1,
     active: true,
-    
+    upc: "001",
     quantity: "10"
   )    
 
@@ -38,7 +38,7 @@ Product.create!(
     name: "Monitor 2",
     id: 2,
     active: true,
-    
+    upc: "002",
     quantity: "10"
   )    
 
@@ -52,7 +52,7 @@ Product.create!(
     name: "Monitor 3",
     id: 3,
     active: true,
-    
+    upc: "003",
     quantity: "10"
   )  
 
@@ -66,7 +66,7 @@ Product.create!(
     name: "Core i7",
     id: 4,
     active: true,
-    
+    upc: "004",
     quantity: "10"
   )   
 
@@ -80,7 +80,7 @@ Product.create!(
     name: "Core i7 2",
     id: 5,
     active: true,
-    
+    upc: "005",
     quantity: "10"
   )   
 
@@ -94,7 +94,7 @@ Product.create!(
     name: "Core i7 3",
     id: 6,
     active: true,
-    
+    upc: "006",
     quantity: "10"
   )  
 
@@ -108,7 +108,7 @@ Product.create!(
     name: "Logitech 1",
     id: 7,
     active: true,
-    
+    upc: "007",
     quantity: "10"
   )  
 
@@ -122,7 +122,7 @@ Product.create!(
     name: "Logitech 2",
     id: 8,
     active: true,
-    
+    upc: "008",
     quantity: "10"
   )  
 
@@ -136,7 +136,7 @@ Product.create!(
     name: "Logitech 3",
     id: 9,
     active: true,
-    
+    upc: "009",
     quantity: "10"
   )  
 
