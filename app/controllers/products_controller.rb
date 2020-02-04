@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.friendly.find(params[:id])   
     #TODO
-    @page_title = ("My Store| " + @product.product_id)
+    @page_title = ("My Store| " + @product.name)
     #TODO
     #@seo_keywords = @product.
     @order_item = current_order.order_items.new

@@ -1,39 +1,40 @@
 <%= render 'shared/application_nav' %>
 
-<%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this @product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %> 
-
-  <body class="bg-light">
-    <div class="row">
-      <div class="col-md-4 order-md-2 mb-4">
-        <p class="product-details">
-          <strong>Details:</strong>
-          <%= @product.details %>
-        </p>                    
+<body class="bg-light">
+  <div class="row" id="product-row">      
+    <div class="col-md-7  payment" >               
+      <div class="col-md-3 offset-3">  
       </div>
-      <div class="col-md-8 order-md-1 payment">
-        <div class="row">
-          
-              <div class="col-md-6">  
-              </div>
-                <div class="card product-card mb-3" id="individual-product-card">                  
-                  <%= render "shared/product_row", product: @product, order_item: @order_item %>                  
-                </div>                
-              </div>
-            </div>              
-          
+      <div id="individual-product-card">       
+       <%#= render "shared/product_row", product: @product, order_item: @order_item %>    
+       <h4><%= @product.name %></small></h4>              
+        <div class="card product-card mb-3 " ">
+          <div class="box-shadow" ">
+            <%= link_to (image_tag @product.main_image ), @product_path unless @product.main_image.nil?  %>
+            <div class="col-xs-8">                    
+            </div>
+            <div class="col-xs-4">                    
+            </div>
+          </div>
         </div>
+      </div>                
+    </div>
+    <div class="col-md-5  mb-4 product-info">
+      <p class="product-details">          
+        <%= @product.details %>
+      </p>       
+      <div class="product-controls order-sm-3 ">
+        <h4 class="product-price">Price: <%= number_to_currency @product.price %></h4>
+        <%= form_for @order_item, remote: true do |f| %>   
+          <div class="input-group" id="product-quantity">
+            <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          </div>
+          <div class="input-group-btn">
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.submit "Add to Cart", class: "btn btn-primary", id:"product-add" %>                
+          </div>
+        <% end %>
       </div>
     </div>
-  </body>
-<% end %>
+  </div>
+</body>

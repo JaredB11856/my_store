@@ -88,15 +88,14 @@
   font-size: 40px;
 }
 
-
-
 /*
  *  Product
  */
 
  .product-details {
-  margin-top: 40px;
+  margin-top: 70px;
   margin-right: 40px;
+  height: 75%;
  }
 
  .box-shadow {
@@ -105,9 +104,6 @@
  width: 210px;
  }
 
- .text-right {
- color: green;
- }
  .product-name {
   margin-top: 10px;
   text-align: center;
@@ -120,6 +116,33 @@
  }
  #individual-product-card {
  margin-top: 40px;
+ float: right;
+ height: 410px;
+ width: 410px;
+ }
+
+ #product-quantity{
+  width: 100px;
+ }
+
+ .form-control{
+  
+ }
+ .product-info{
+  position: relative;
+ }
+ .product-controls{
+  bottom: 0;
+  height: 25%;
+ }
+ #product-add{
+  margin-left: 120px;
+ }
+
+ 
+ .input-group{
+  position: absolute;  
+  height: 40px;
  }
 
 /*
