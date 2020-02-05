@@ -10,7 +10,7 @@
        <h4><%= @product.name %></small></h4>              
         <div class="card product-card mb-3 " ">
           <div class="box-shadow" ">
-            <%= link_to (image_tag @product.main_image ), @product_path unless @product.main_image.nil?  %>
+            <%= link_to (image_tag @product.thumb_image ), @product_path unless @product.thumb_image.nil?  %>
             <div class="col-xs-8">                    
             </div>
             <div class="col-xs-4">                    
