@@ -2,7 +2,9 @@ class UserPagesController < ApplicationController
 
   def user_page  
     @order_items = OrderItem.all           
-    @orders = current_user.orders    
+    @orders = current_user.orders   
+
+    @products = Product.all 
   end   
 
   def user_billing

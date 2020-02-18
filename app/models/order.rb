@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   before_create :set_order_status
   before_save :update_subtotal
 
-  enum order_status_id: { cart: 0, processed: 1 }
+  enum order_status_id: { shipped: 0, processed: 1, cart: 2 }
   attr_accessor :card_number, :card_verification, :cc_month, :cc_year, :error_message
 
   def purchase    

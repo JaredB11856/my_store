@@ -186,3 +186,76 @@ input[type=checkbox] {
 .filter-menu {
   border: 1px solid black;
 }
+
+/*
+ *  User
+ */
+
+
+
+ .order {
+ display: inline-flex;
+ }
+
+ .order-row{
+ 
+ position: absolute; 
+ width: 100%;
+ top: 50%;
+ transform: translate(0%, -50%);
+ }
+
+ #order-total { 
+ padding: 5px;
+ position: absolute;
+ left: 75%;
+ top: 50%;
+ transform: translate(0%, -50%);
+ }
+
+
+ .order-box {
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.125); 
+  background-color: #F0F0F0;
+  position: relative;
+  width: 600px ;
+  height: 150px;  
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+#order-tracking{
+ 
+ position: absolute;
+ bottom: 10px; 
+ left: 50%;
+ transform: translate(-50%, -50%);
+}
+
+#order-id{
+ 
+ position: absolute;
+ padding: 5px;
+ left: 0%;
+ top: 50%;
+ transform: translate(0%, -50%);
+}
+
+#order-date{
+padding: 5px;
+ 
+ position: absolute;
+ left: 25%;
+ top: 50%;
+ transform: translate(0%, -50%);
+}
+
+#order-status{
+padding: 5px;
+ 
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(0%, -50%);
+}

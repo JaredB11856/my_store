@@ -2,10 +2,38 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to "Order History", user_order_history_path %>
-<br>
-<%= link_to "billing", user_billing_path %>
-<br>
-<%= link_to "shipping", user_shipping_path %>
-<br>
-<%= link_to "settings", user_settings_path %>
+<% @orders.each do |order| %>
+  <div class="order-box" >               
+    <div class="order-row">
+      <%#= link_to (image_tag order.main_image ), unless order.main_image.nil?  %>
+      <div class=" order">
+        <div><%#= product.name %></small></div>
+      </div>
+      <div class=" order">
+        <%#= form_for order_item, remote: true do |f| %>
+        <div id="order-total">Total:<%= number_to_currency order.total, class: "product-price"%></div>
+        <% order.order_items.each do |order_item| %>
+        <hr>
+         <% product = Product.friendly.find(order_item.product_id) %>
+         <hr>          
+          <div id="order-id">Order number:<%= order.id %></div>
+         <hr>          
+         <div id="order-status">Status:<%= order.order_status_id %></div>
+         <hr>
+         <div id="order-date"><%= order.created_at.strftime("%m-%d-%Y") %></div>
+         <hr>
+            <div class="input-group">
+              <%#= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+              <div class="input-group-btn">
+                <%#= f.hidden_field :product_id, value: product.id %>
+                <%#= f.submit "Add to Cart", class: "btn btn-primary" %>
+              </div>
+            </div>
+         
+        <%# end %>
+      </div>
+    </div>
+    <div id="order-tracking">Tracking:<%= order.tracking %></div>
+    <% end %>
+  </div>
+<% end %>
